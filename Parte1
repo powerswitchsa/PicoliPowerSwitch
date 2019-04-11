@@ -1,0 +1,65 @@
+Un mundo feliz? 
+
+Sobre los seres
+En un país viven una serie de seres que se rigen mediante una forma económica y social peculiar. Los seres, cuando nacen, 
+lo hacen porque el estado los crea, les asigna un nombre al azar y les da un número identificativo (no puede repetirse). 
+En este país también pasa el tiempo, nosotros vamos a ver su evolución año a año. Cuando un ser nace tiene una esperanza de 
+vida prefijada y aleatoria que tiene que ver con la esperanza de vida máxima de 90.
+
+Todos los seres tienen una necesidad vital mensual (NV) cuantificada, para todos las misma, que puede cambiar durante toda su vida. 
+En los primeros diecisiete años es totalmente subvencionada por el estado, si este tiene dinero suficiente, cuando cumplen dieciocho 
+años de vida los seres pasan a formar parte de los demandantes de empleo, a estos se les va asignando empleo a medida que van 
+necesitándose trabajadores, según el orden de llegada al mercado laboral.
+
+Cuando un trabajador tiene 18 pasa a cobrar, mientras este sin trabajo, una compensación del estado por la mitad de su NV, una vez que 
+el estado haya atendido las necesidades de los menores. Cuando un trabajador cobra menos que su necesidad vital su esperanza de vida 
+decrece en una cantidad proporcional a su déficit de ingresos para ese año y nunca en una cantidad menor a 0,5 años.
+
+Si el trabajador tiene ahorros puede complementar la ayuda estatal para completar su NV.
+
+Durante la vida laboral el trabajador cobrará el doble de su NV, la parte que no consume se reparte de la siguiente forma, el 50% es 
+ahorro para el propio trabajador y el otro 50% es para el estado.
+
+Cuando un trabajador se jubila su NV decrece al 50% y debe mantenerse gastando los ahorros conseguidos durante su vida laboral. 
+Si el jubilado gasta sus ahorros pero sigue vivo el estado se encarga de pagar la NV al jubilado.
+ 
+El orden es el siguiente:
+Se intenta pagar a todos los menos de 18 el 100% de la NV , si no hay suficiente se reparte equitativamente entre todos.
+Si sobra dinero se paga a los demandantes sin trabajo y finalmente a los jubilados según este sistema.
+Si el ser muere y tiene ahorros pasan a ser propiedad del estado.
+
+
+Sobre el estado:
+
+El estado se comporta como el gestor de la población. Todos los años necesita producir una cantidad. Existe una cantidad mínima que no
+puede rebajarse y que permite pagar a 100 trabajadores, 50 menores y 30 jubilados. 
+
+Con este mínimo, cada año nacen tantos seres como trabajadores se jubilan.
+ 
+El estado cuenta con una serie de factorías. Que producen una cantidad dependiente de su tamaño: puede ser pequeña, mediana y grande.
+Con la siguiente proporción: la pequeña produce una cuarta parte de la mediana y la grande diez veces más. Siguiendo la misma proporción
+en el número de trabajadores. 
+
+Los trabajadores son asignados a la empresa por el estado, en igualdad de condiciones, y una empresa producirá en forma directamente 
+proporcional al número de trabajadores que tenga. 
+
+Cada año el estado intenta tener el menor número de empresas posibles, para eso cerrará todas las empresas pequeñas o medianas que 
+tengan un número de trabajadores inferior al 50% de su capacidad, estos trabajadores pasan a las empresas grandes, no cabe la 
+posibilidad de crear una nueva empresa grande para relocalizar trabajadores.
+
+Cada año la demanda puede incrementarse o decrementarse en un porcentaje, En el primer caso el estado debe decidir si sube el número 
+de nacimientos para poder generar más trabajadores y así satisfacer la demanda.
+
+Si la demanda disminuye, el estado debe crear menos nacimientos y despedir a los empleados para adecuar la producción a la demanda. 
+El número de nacimientos debe garantizar la producción mínima, o sea que puede ser cero. Primero se despide de las empresas grandes. 
+Si bajan del 30% de trabajadores se cierran tantas empresas grandes como sean necesarias para que lleguen al 50%.
+
+Cuando el estado despide primero a los que se incorporaron últimos a la empresa. Y pasan al mercado laboral como demandantes de empleo. 
+Serán los últimos en llegar los que más tarden en volver a trabajar, a no ser que entre ingresos de paro y ahorro no cumplan su NV, 
+en ese caso suben a niveles más altos, tienen mayor prioridad.
+
+Esta es la versión 1.0 del programa
+Debes crear las clases necesarias, los casos de uso, el diagrama de clases correcto, aplicar el clean code que conoces, poner pruebas 
+unitarias. Aplicar herencia, polimorfismo, interfaces, etc. Debes utilizar las colecciones de forma adecuada, usa pilas, lista, colas, 
+conjuntos o mapas según veas que se hace necesario.
+

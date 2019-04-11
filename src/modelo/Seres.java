@@ -1,21 +1,23 @@
 package modelo;
 
 import interfaz.Cobrable;
+import interfaz.Morible;
 
-public abstract class Seres implements Cobrable {
+public abstract class Seres implements Cobrable, Morible {
 
 	private String nombre;
 	private int id;
 	private int edad;
 	private int fechaMuerte;
-	private double ahorros;
 
+	private double ahorros;
 	private int necesidadVital;
 	private double sueldoMinimoVivir;
 
-	public Seres(String nombre) {
+	public Seres(String nombre, int id) {
 		super();
 		this.nombre = nombre;
+		this.id = id;
 		this.necesidadVital = 365;
 		this.fechaMuerte = obtenerNumeroAleatorio(0, 89);
 	}

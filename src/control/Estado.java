@@ -30,20 +30,20 @@ public class Estado {
 		this.listaFactoria = new HashSet<Factoria>();
 	}
 
-	// Eliminar aquellos que mueran
+	// Eliminar aquellos que mueran (Si el ser muere y tiene ahorros pasan a ser propiedad del estado.)
 	// Pasar menor a desempleado si estos cumplen las condiciones
 	// Añadir nuevos menores (la cantidad dependera de la demanda)
 	public void actualizarMenores() {
 
 	}
 
-	// Eliminar aquellos que mueran
-	// Pasar trabajadores a jubilados si estos cumplen las condiciones
+	// Eliminar aquellos que mueran (Si el ser muere y tiene ahorros pasan a ser propiedad del estado.)
+	// Pasar trabajadores a jubilados si estos cumplen las condiciones (Cuando un trabajador se jubila su NV decrece al 50%)
 	public void actualizarTrabajadores() {
 
 	}
 
-	// Eliminar aquellos que mueran
+	// Eliminar aquellos que mueran (Si el ser muere y tiene ahorros pasan a ser propiedad del estado.)
 	public void actualizarJubilados() {
 
 	}

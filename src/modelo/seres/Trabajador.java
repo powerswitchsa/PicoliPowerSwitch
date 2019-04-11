@@ -4,8 +4,8 @@ import modelo.Seres;
 
 public class Trabajador extends Seres {
 
-	public Trabajador(String nombre) {
-		super(nombre);
+	public Trabajador(String nombre, int id) {
+		super(nombre, id);
 		setEdad(18);
 		setSueldoMinimoVivir(365);
 	}
@@ -14,6 +14,12 @@ public class Trabajador extends Seres {
 	public void cobrar(int sueldo) {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public boolean morir() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }

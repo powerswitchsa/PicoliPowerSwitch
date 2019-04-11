@@ -1,10 +1,17 @@
 package control;
 
+import java.util.HashSet;
+
+import modelo.factorias.Factoria;
+import modelo.seres.Jubilado;
+import modelo.seres.Menor;
+import modelo.seres.Trabajador;
+
 public class Estado {
 
-	// lista de trabajadoresParo
-	// lista de menores
-	// lista de jubilados
-	// lista de factorias --> este tiene la lista de trabajadores que trabajan
+	private HashSet<Menor> listaMenor;
+	private HashSet<Trabajador> listaTrabajadorParo;
+	private HashSet<Jubilado> listaJubilados;
+	private HashSet<Factoria> listaFactoria;
 
 }

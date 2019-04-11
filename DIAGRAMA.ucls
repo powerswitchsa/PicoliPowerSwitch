@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.2.3" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
   associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
-  <class id="1" language="java" name="modelo.seres.Seres" project="PicoliPowerSwitch" 
-    file="/PicoliPowerSwitch/src/modelo/seres/Seres.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="195" y="129"/>    
+  <class id="1" language="java" name="modelo.Seres" project="PicoliPowerSwitch" 
+    file="/PicoliPowerSwitch/src/modelo/Seres.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="318" y="253"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -12,7 +12,7 @@
   </class>  
   <class id="2" language="java" name="modelo.seres.Jubilado" project="PicoliPowerSwitch" 
     file="/PicoliPowerSwitch/src/modelo/seres/Jubilado.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="340" y="353"/>    
+    <position height="-1" width="-1" x="68" y="407"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -21,7 +21,7 @@
   </class>  
   <class id="3" language="java" name="modelo.seres.Menor" project="PicoliPowerSwitch" 
     file="/PicoliPowerSwitch/src/modelo/seres/Menor.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="90" y="349"/>    
+    <position height="-1" width="-1" x="67" y="278"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -30,7 +30,7 @@
   </class>  
   <class id="4" language="java" name="modelo.seres.Trabajador" project="PicoliPowerSwitch" 
     file="/PicoliPowerSwitch/src/modelo/seres/Trabajador.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="215" y="355"/>    
+    <position height="-1" width="-1" x="250" y="592"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -39,22 +39,71 @@
   </class>  
   <class id="5" language="java" name="control.Estado" project="PicoliPowerSwitch" 
     file="/PicoliPowerSwitch/src/control/Estado.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="88" width="104" x="625" y="75"/>    
+    <position height="-1" width="-1" x="801" y="739"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <generalization id="6">    
+  <interface id="6" language="java" name="interfaz.Cobrable" project="PicoliPowerSwitch" 
+    file="/PicoliPowerSwitch/src/interfaz/Cobrable.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="68" y="528"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="7" language="java" name="modelo.factorias.Factoria" project="PicoliPowerSwitch" 
+    file="/PicoliPowerSwitch/src/modelo/factorias/Factoria.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="132" y="759"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <enumeration id="8" language="java" name="modelo.factorias.Densidad" project="PicoliPowerSwitch" 
+    file="/PicoliPowerSwitch/src/modelo/factorias/Densidad.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="89" y="113"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </enumeration>  
+  <generalization id="9">    
     <end type="SOURCE" refId="4"/>    
     <end type="TARGET" refId="1"/>  
   </generalization>  
-  <generalization id="7">    
+  <association id="10">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="11" name="listaFactoria"/>      
+      <multiplicity id="12" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="13">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="6"/>  
+  </realization>  
+  <generalization id="14">    
     <end type="SOURCE" refId="2"/>    
     <end type="TARGET" refId="1"/>  
   </generalization>  
-  <generalization id="8">    
+  <association id="15">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="16" name="trabajadores"/>      
+      <multiplicity id="17" minimum="0" maximum="2147483647">        
+        <position height="18" width="25" x="341" y="668"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="18">    
     <end type="SOURCE" refId="3"/>    
     <end type="TARGET" refId="1"/>  
   </generalization>  

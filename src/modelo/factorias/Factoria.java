@@ -6,6 +6,11 @@ import modelo.seres.Trabajador;
 
 public class Factoria {
 
+//	Todos los trabajadores producen 1000$ 
+//	pequeña (100 trabajadores max) (100 X 1000 = 100.000$)
+//	media (400 trabajadores max)  (400 X 1000 = 400.000$)
+//	grande (1000 trabajadores max) (1000 X 1000 = 1.000.000$)
+
 	private boolean open;
 	private Stack<Trabajador> trabajadores;
 	private int maxTrabajadores;
@@ -32,6 +37,11 @@ public class Factoria {
 	// despide a todos los trabajadores, y cierra empresa
 	public void cerraFactoria(Stack<Trabajador> listaDesempleados) {
 
+	}
+
+	// Este me devuelve el dinero anual que a producido
+	public int getProduccionAnual() {
+		return 0;
 	}
 
 }

@@ -7,10 +7,9 @@ public class Jubilado extends Ser {
 	public Jubilado(String nombre, int id) {
 		super(nombre, id);
 		setEdad(64);
-		setSueldoMinimoVivir(182.5f);
+		setNecesidadVital(182.5f);
 	}
 
-	
 //	Debe mantenerse gastando los ahorros conseguidos durante su vida laboral. Si el jubilado 
 //	gasta sus ahorros pero sigue vivo el estado se encarga de pagar la NV al jubilado. 
 	@Override

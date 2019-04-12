@@ -2,6 +2,7 @@ package modelo;
 
 import interfaz.Cobrable;
 import interfaz.Morible;
+import utilesglobal.Utilies;
 
 public abstract class Ser implements Cobrable, Morible {
 
@@ -11,24 +12,18 @@ public abstract class Ser implements Cobrable, Morible {
 	private int fechaMuerte;
 
 	private double ahorros;
-	private int necesidadVital;
-	private double sueldoMinimoVivir;
+	private float necesidadVital;
 
 	public Ser(String nombre, int id) {
 		super();
-		this.nombre = nombre;
+		this.nombre = Utilies.getNombreAleatorio();
 		this.id = id;
 		this.necesidadVital = 365;
-		this.fechaMuerte = obtenerNumeroAleatorio(0, 89);
+		this.fechaMuerte = Utilies.obtenerAleatorio(90);
 	}
 
 	public Ser() {
 		super();
-	}
-
-	private int obtenerNumeroAleatorio(int i, int j) {
-		// TODO Auto-generated method stub
-		return 0;
 	}
 
 	public int getEdad() {
@@ -39,10 +34,6 @@ public abstract class Ser implements Cobrable, Morible {
 		this.edad = edad;
 	}
 
-	public void setSueldoMinimoVivir(double suledoMinimoVivir) {
-		this.sueldoMinimoVivir = suledoMinimoVivir;
-	}
-
 	public int getFechaMuerte() {
 		return fechaMuerte;
 	}
@@ -51,11 +42,11 @@ public abstract class Ser implements Cobrable, Morible {
 		this.fechaMuerte = fechaMuerte;
 	}
 
-	public int getNecesidadVital() {
+	public float getNecesidadVital() {
 		return necesidadVital;
 	}
 
-	public void setNecesidadVital(int necesidadVital) {
+	public void setNecesidadVital(float necesidadVital) {
 		this.necesidadVital = necesidadVital;
 	}
 

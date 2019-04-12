@@ -1,5 +1,6 @@
 package modelo.factorias;
 
+import java.util.HashSet;
 import java.util.Stack;
 
 import modelo.seres.Trabajador;
@@ -37,7 +38,7 @@ public class Factoria {
 	}
 
 	// despide a todos los trabajadores, y cierra empresa
-	public void cerraFactoria(Stack<Trabajador> listaDesempleados) {
+	public void cerraFactoria(HashSet<Trabajador> listaDesempleados) {
 
 	}
 
@@ -46,5 +47,15 @@ public class Factoria {
 	public int getProduccionAnual() {
 		return 0;
 	}
+	
+	public int getPorcentajeCapacidad() {
+		return 0;
+	}
+
+	public Stack<Trabajador> getTrabajadores() {
+		return trabajadores;
+	}
+	
+	
 
 }

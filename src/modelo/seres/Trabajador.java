@@ -4,12 +4,15 @@ import modelo.Ser;
 
 public class Trabajador extends Ser {
 
+	private boolean trabajando;
+
 	public Trabajador(String nombre, int id) {
 		super(nombre, id);
+		this.trabajando = false;
 		setEdad(18);
-		setSueldoMinimoVivir(365);
+		setNecesidadVital(365);
 	}
-	
+
 //  Si el trabajador tiene ahorros puede complementar la ayuda estatal para completar su NV.
 //	Durante la vida laboral el trabajador cobrará el doble de su NV, la parte que no consume se 
 //	reparte de la siguiente forma, el 50% es ahorro para el propio trabajador y el otro 50% es para el estado.
@@ -25,6 +28,14 @@ public class Trabajador extends Ser {
 	public boolean morir() {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	public boolean isTrabajando() {
+		return trabajando;
+	}
+
+	public void setTrabajando(boolean trabajando) {
+		this.trabajando = trabajando;
 	}
 
 }

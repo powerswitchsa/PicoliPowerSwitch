@@ -1,10 +1,10 @@
 package utilesglobal;
 
 public class Mensajes {
-	private static boolean activados=true;
-	
+	private static boolean activados = true;
+
 	public static void escribeEnConsola(String mensaje) {
-		if(activados) {
+		if (activados) {
 			System.out.println(mensaje);
 		}
 	}

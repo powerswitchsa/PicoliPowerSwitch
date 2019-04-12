@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class DatosEstadoLocal extends Datos {
 
-	public DatosEstadoLocal(int pequenas, float porcentajePequenas, int medianas,float porcentajeMedianastrabajadores, 
+	public DatosEstadoLocal(int pequenas, float porcentajePequenas, int medianas, float porcentajeMedianastrabajadores,
 			int grandes, float porcentajeGrandes) {
 		super();
 		ArrayList datos = getDatos();

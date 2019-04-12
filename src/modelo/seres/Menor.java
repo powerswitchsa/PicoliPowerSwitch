@@ -1,8 +1,8 @@
 package modelo.seres;
 
-import modelo.Seres;
+import modelo.Ser;
 
-public class Menor extends Seres {
+public class Menor extends Ser {
 
 	public Menor(String nombre, int id) {
 		super(nombre, id);

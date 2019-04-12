@@ -14,6 +14,7 @@ public class Factoria {
 	private boolean open;
 	private Stack<Trabajador> trabajadores;
 	private int maxTrabajadores;
+	private int porcentajeGastosFactoria;
 	private long produccionTrabajador;
 
 	public Factoria(TipoFactoria densidad, boolean open) {
@@ -21,6 +22,7 @@ public class Factoria {
 		this.open = open;
 		this.trabajadores = new Stack<Trabajador>();
 		this.maxTrabajadores = densidad.getNumTrabajadores();
+		this.porcentajeGastosFactoria = densidad.getCosteMantenimiento();
 		this.produccionTrabajador = 1000;
 	}
 
@@ -30,7 +32,7 @@ public class Factoria {
 	}
 
 	// Se despide al ultimo que entra
-	public void despedirTrabajador(Stack<Trabajador> listaDesempleados) {
+	public void despedirTrabajador(Stack<Trabajador> listaDesempleados, int numDespedidos) {
 
 	}
 
@@ -39,7 +41,8 @@ public class Factoria {
 
 	}
 
-	// Este me devuelve el dinero anual que a producido
+	// Este me devuelve el dinero anual que a producido , quitando los gastos de
+	// mantenimiento
 	public int getProduccionAnual() {
 		return 0;
 	}

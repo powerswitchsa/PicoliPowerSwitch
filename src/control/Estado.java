@@ -18,7 +18,7 @@ public class Estado {
 	private Stack<Trabajador> listaDesenpleados;
 	private HashSet<Menor> listaMenor;
 	private HashSet<Jubilado> listaJubilados;
-	private HashSet<Factoria> listaFactoria;
+	private HashSet<Factoria> listaFactoria; // los que estan trabajando
 
 	private long dineroEstado;
 

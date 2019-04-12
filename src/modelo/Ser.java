@@ -3,7 +3,7 @@ package modelo;
 import interfaz.Cobrable;
 import interfaz.Morible;
 
-public abstract class Seres implements Cobrable, Morible {
+public abstract class Ser implements Cobrable, Morible {
 
 	private String nombre;
 	private int id;
@@ -14,7 +14,7 @@ public abstract class Seres implements Cobrable, Morible {
 	private int necesidadVital;
 	private double sueldoMinimoVivir;
 
-	public Seres(String nombre, int id) {
+	public Ser(String nombre, int id) {
 		super();
 		this.nombre = nombre;
 		this.id = id;
@@ -22,7 +22,7 @@ public abstract class Seres implements Cobrable, Morible {
 		this.fechaMuerte = obtenerNumeroAleatorio(0, 89);
 	}
 
-	public Seres() {
+	public Ser() {
 		super();
 	}
 

@@ -1,5 +1,6 @@
 package modelo.listas;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 
 import modelo.factorias.Factoria;
@@ -7,11 +8,11 @@ import modelo.seres.Trabajador;
 
 public class Industria {
 
-	private HashSet<Factoria> factorias;
+	private ArrayList<Factoria> factorias;
 
 	public Industria() {
 		super();
-		this.factorias = new HashSet<>();
+		this.factorias = new ArrayList<>();
 	}
 
 	public long getProduccionTotal() {
@@ -26,7 +27,15 @@ public class Industria {
 
 	}
 
-	public HashSet<Factoria> getFactorias() {
+	public void eliminarTrabajador(int id) {
+
+	}
+
+	public void contratar(Trabajador trabajador) {
+
+	}
+
+	public ArrayList<Factoria> getFactorias() {
 		return factorias;
 	}
 

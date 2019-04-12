@@ -43,11 +43,15 @@ public class Factoria {
 	}
 
 	// Este me devuelve el dinero anual que a producido , quitando los gastos de
-	// mantenimiento
+	// mantenimiento .Vamos a establecer un coste de mantenimiento anual de las
+	// factorías
+	// que sera un porcentaje de su producción máxima
+	// De las pequeñas 15% De las medianas 10% de las grandes 5%
 	public int getProduccionAnual() {
 		return 0;
 	}
-	
+
+	// devuelve la el porcentaje de puestos que estan ocupados
 	public int getPorcentajeCapacidad() {
 		return 0;
 	}
@@ -55,7 +59,5 @@ public class Factoria {
 	public Stack<Trabajador> getTrabajadores() {
 		return trabajadores;
 	}
-	
-	
 
 }

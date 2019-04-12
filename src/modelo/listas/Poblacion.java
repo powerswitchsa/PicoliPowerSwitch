@@ -15,6 +15,7 @@ public class Poblacion {
 
 	public Poblacion(int numMenor, int numTrabajadores, int numJubilados) {
 		super();
+		this.seres = new ArrayList<>();
 
 	}
 
@@ -53,14 +54,19 @@ public class Poblacion {
 
 	}
 
-	// si se muere el un trabajador que no este desempleado, aparte de eliminarlo de
-	// la lista de poblacion, hay que eliminarlo de la factoria en la que trabaja
-	// el dinero que tenga ahorrado pasa al estado
+	// si muere un trabajador que no este desempleado, aparte de eliminarlo de
+	// la lista de poblacion, hay que eliminarlo de la factoria en la que trabaja.
+	// Los que tengan ahorros estos pasan al estado
 	private void eliminarMuertos(long dineroEstado, Industria industria) {
 
 	}
 
 	// utilizar interfaz "Cobrable"
+	// Sueldos :
+	// TRABAJADOR --> 730$ --> SIN TRAABAJO Y AHORROS , LES AYUDA EL ESTADO , PERO
+	// ESTE SOLO LE PAGA 50% DE SU NECESIDAD VITAL
+	// MENOR --> 365$ --> LOS MANTIENEN EL ESTADO
+	// JUBILADO --> 182.5$ --> CUANDO SE QUEDAN SIN AHORROS
 	private void pagarSueldos(long dineroEstado) {
 
 	}

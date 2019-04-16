@@ -12,7 +12,7 @@ public abstract class Ser implements Cobrable, Morible {
 	private int fechaMuerte;
 
 	private double ahorros;
-	private float necesidadVital;
+	private double necesidadVital;
 
 	public Ser(String nombre, int id) {
 		super();
@@ -42,7 +42,7 @@ public abstract class Ser implements Cobrable, Morible {
 		this.fechaMuerte = fechaMuerte;
 	}
 
-	public float getNecesidadVital() {
+	public double getNecesidadVital() {
 		return necesidadVital;
 	}
 

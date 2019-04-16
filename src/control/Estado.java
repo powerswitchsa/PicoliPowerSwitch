@@ -18,7 +18,7 @@ public class Estado {
 	private ArrayList<Menor> menores;
 	private ArrayList<Jubilado> jubilados;
 
-	private long dineroEstado;
+	private double dineroEstado;
 	private long nacimientos;
 
 	public Estado() {

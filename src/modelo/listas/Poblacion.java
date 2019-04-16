@@ -31,7 +31,7 @@ public class Poblacion {
 		return null;
 	}
 
-	public void actualizarPoblacion(long dineroEstado, Industria industria, long nacimientos) {
+	public void actualizarPoblacion(Double dineroEstado, Industria industria, long nacimientos) {
 		pagarSueldos(dineroEstado);
 		eliminarMuertos(dineroEstado, industria);
 		aumentarPoblacion(nacimientos);
@@ -57,7 +57,7 @@ public class Poblacion {
 	// si muere un trabajador que no este desempleado, aparte de eliminarlo de
 	// la lista de poblacion, hay que eliminarlo de la factoria en la que trabaja.
 	// Los que tengan ahorros estos pasan al estado
-	private void eliminarMuertos(long dineroEstado, Industria industria) {
+	private void eliminarMuertos(Double dineroEstado, Industria industria) {
 
 	}
 
@@ -67,7 +67,7 @@ public class Poblacion {
 	// ESTE SOLO LE PAGA 50% DE SU NECESIDAD VITAL
 	// MENOR --> 365$ --> LOS MANTIENEN EL ESTADO
 	// JUBILADO --> 182.5$ --> CUANDO SE QUEDAN SIN AHORROS
-	private void pagarSueldos(long dineroEstado) {
+	private void pagarSueldos(Double dineroEstado) {
 
 	}
 }

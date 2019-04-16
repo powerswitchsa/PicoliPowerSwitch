@@ -38,7 +38,7 @@ public class Factoria {
 	}
 
 	// despide a todos los trabajadores, y cierra empresa
-	public void cerraFactoria(HashSet<Trabajador> listaDesempleados) {
+	public void cerraFactoria(Stack<Trabajador> listaDesempleados) {
 
 	}
 
@@ -52,8 +52,16 @@ public class Factoria {
 	}
 
 	// devuelve la el porcentaje de puestos que estan ocupados
-	public int getPorcentajeCapacidad() {
+	public float getPorcentajeCapacidad() {
 		return 0;
+	}
+
+	public boolean isOpen() {
+		return open;
+	}
+
+	public void setOpen(boolean open) {
+		this.open = open;
 	}
 
 	public Stack<Trabajador> getTrabajadores() {

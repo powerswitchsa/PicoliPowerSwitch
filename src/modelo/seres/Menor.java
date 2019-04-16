@@ -10,9 +10,11 @@ public class Menor extends Ser {
 		setEdad(0);
 		setNecesidadVital(365);
 	}
-
+	
+	
+	// si no cobran lo suficiente baja la esperanza de vida
 	@Override
-	public void cobrar(int sueldo) {
+	public void cobrar(int sueldo, double dineroEstado) {
 		// TODO Auto-generated method stub
 
 	}

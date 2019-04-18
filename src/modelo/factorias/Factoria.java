@@ -1,5 +1,6 @@
 package modelo.factorias;
 
+import java.util.HashSet;
 import java.util.Stack;
 
 import modelo.seres.Trabajador;
@@ -31,7 +32,7 @@ public class Factoria {
 
 	}
 
-	// Se despide al ultimo que entra
+	// Se despide una cantidad de trabajadores, y estos seran siempre los ultimos en entrar
 	public void despedirTrabajador(Stack<Trabajador> listaDesempleados, int numDespedidos) {
 
 	}
@@ -42,9 +43,29 @@ public class Factoria {
 	}
 
 	// Este me devuelve el dinero anual que a producido , quitando los gastos de
-	// mantenimiento
+	// mantenimiento .Vamos a establecer un coste de mantenimiento anual de las
+	// factorías
+	// que sera un porcentaje de su producción máxima
+	// De las pequeñas 15% De las medianas 10% de las grandes 5%
 	public int getProduccionAnual() {
 		return 0;
+	}
+
+	// devuelve el porcentaje de puestos que estan ocupados
+	public float getPorcentajeCapacidad() {
+		return 0;
+	}
+
+	public boolean isOpen() {
+		return open;
+	}
+
+	public void setOpen(boolean open) {
+		this.open = open;
+	}
+
+	public Stack<Trabajador> getTrabajadores() {
+		return trabajadores;
 	}
 
 }

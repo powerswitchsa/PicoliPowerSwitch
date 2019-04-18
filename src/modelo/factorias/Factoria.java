@@ -32,7 +32,7 @@ public class Factoria {
 
 	}
 
-	// Se despide al ultimo que entra
+	// Se despide una cantidad de trabajadores, y estos seran siempre los ultimos en entrar
 	public void despedirTrabajador(Stack<Trabajador> listaDesempleados, int numDespedidos) {
 
 	}
@@ -51,7 +51,7 @@ public class Factoria {
 		return 0;
 	}
 
-	// devuelve la el porcentaje de puestos que estan ocupados
+	// devuelve el porcentaje de puestos que estan ocupados
 	public float getPorcentajeCapacidad() {
 		return 0;
 	}

@@ -14,7 +14,8 @@ public class Industria {
 		super();
 		this.factorias = new ArrayList<>();
 	}
-
+	
+	// devuelve la produccion anual de todas las factorias
 	public long getProduccionTotal() {
 		return 0;
 	}

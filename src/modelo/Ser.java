@@ -2,6 +2,7 @@ package modelo;
 
 import interfaz.Cobrable;
 import interfaz.Morible;
+import modelo.seres.Jubilado;
 import utilesglobal.Utilies;
 
 public abstract class Ser implements Cobrable, Morible {
@@ -24,6 +25,12 @@ public abstract class Ser implements Cobrable, Morible {
 
 	public Ser() {
 		super();
+	}
+	
+	public void reducirEsperanzaVida(double NVrestante) {
+		double maxPierde = 0.5;
+		double cuenta = (0.5 * NVrestante) / this.necesidadVital;
+		this.fechaMuerte -= cuenta;
 	}
 
 	public int getEdad() {

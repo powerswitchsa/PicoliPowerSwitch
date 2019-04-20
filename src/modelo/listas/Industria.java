@@ -14,7 +14,7 @@ public class Industria {
 		super();
 		this.factorias = new ArrayList<>();
 	}
-	
+
 	// devuelve la produccion anual de todas las factorias
 	public long getProduccionTotal() {
 		return 0;
@@ -34,6 +34,14 @@ public class Industria {
 
 	public void contratar(Trabajador trabajador) {
 
+	}
+
+	public int getNumTrabajdores() {
+		int numTrabajadores = 0;
+		for (Factoria factoria : factorias) {
+			numTrabajadores += factoria.getTrabajadores().size();
+		}
+		return numTrabajadores;
 	}
 
 	public ArrayList<Factoria> getFactorias() {

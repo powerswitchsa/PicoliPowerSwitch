@@ -8,7 +8,7 @@ import modelo.seres.Jubilado;
 
 class JubiladoTest {
 
-	private Jubilado jubilado = new Jubilado("pepito", 1);
+	private Jubilado jubilado = new Jubilado("pepito", 1, 500);
 
 	@Test
 	void testCobrar() {

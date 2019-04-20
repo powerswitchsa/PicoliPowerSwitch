@@ -3,7 +3,7 @@ package modelo.listas;
 import java.util.ArrayList;
 import java.util.HashSet;
 
-import modelo.factorias.Factoria;
+import modelo.Factoria;
 import modelo.seres.Trabajador;
 
 public class Industria {

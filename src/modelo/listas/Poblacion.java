@@ -1,6 +1,7 @@
 package modelo.listas;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Stack;
 
 import modelo.Ser;
@@ -32,10 +33,16 @@ public class Poblacion {
 	}
 
 	public void actualizarPoblacion(Double dineroEstado, Industria industria, long nacimientos) {
-		pagarSueldos(dineroEstado);
+		envejecerPoblacion();
 		eliminarMuertos(dineroEstado, industria);
 		aumentarPoblacion(nacimientos);
 		actualizarSer();
+	}
+
+	private void envejecerPoblacion() {
+		for (Ser ser : seres) {
+			ser.setEdad(ser.getEdad() + 1);
+		}
 	}
 
 	// retorna la suma total de todos los sueldos que debemos pagar
@@ -46,6 +53,17 @@ public class Poblacion {
 
 	// comprueba si el ser pasar a ser trabajador o jubilado
 	private void actualizarSer() {
+		for (Iterator iterator = seres.iterator(); iterator.hasNext();) {
+			Ser ser = (Ser) iterator.next();
+			if (ser.getEdad() == 18) {
+				seres.add(new Trabajador(ser.getNombre(), ser.getId()));
+				seres.remove(ser);
+			}
+			if (ser.getEdad() == 64) {
+				seres.add(new Jubilado(ser.getNombre(), ser.getId(), ser.getAhorros()));
+				seres.remove(ser);
+			}
+		}
 
 	}
 
@@ -58,7 +76,16 @@ public class Poblacion {
 	// la lista de poblacion, hay que eliminarlo de la factoria en la que trabaja.
 	// Los que tengan ahorros estos pasan al estado
 	private void eliminarMuertos(Double dineroEstado, Industria industria) {
-
+		for (Iterator iterator = seres.iterator(); iterator.hasNext();) {
+			Ser ser = (Ser) iterator.next();
+			if (ser.morir()) {
+				if (ser instanceof Trabajador && ((Trabajador) ser).isTrabajando()) {
+					industria.eliminarTrabajador(ser.getId());
+				}
+				dineroEstado += ser.getAhorros();
+				seres.remove(ser);
+			}
+		}
 	}
 
 	// utilizar interfaz "Cobrable"
@@ -67,7 +94,12 @@ public class Poblacion {
 	// ESTE SOLO LE PAGA 50% DE SU NECESIDAD VITAL
 	// MENOR --> 365$ --> LOS MANTIENEN EL ESTADO
 	// JUBILADO --> 182.5$ --> CUANDO SE QUEDAN SIN AHORROS
-	private void pagarSueldos(Double dineroEstado) {
-
+	public void pagarPoblacion(Double dineroEstado, double sueldo, Object tipoSer) {
+		for (Ser ser : seres) {
+			if (tipoSer.getClass() == ser.getClass()) {
+				ser.cobrar(sueldo, dineroEstado);
+			}
+		}
 	}
+
 }

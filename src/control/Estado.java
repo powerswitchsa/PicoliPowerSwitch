@@ -18,6 +18,9 @@ public class Estado {
 	private ArrayList<Menor> menores;
 	private ArrayList<Jubilado> jubilados;
 
+	private int sueldoTrabajadores = 730;
+	private int sueldoMenor = 365;
+
 	private double dineroEstado;
 	private long nacimientos;
 
@@ -31,10 +34,25 @@ public class Estado {
 
 	public void actualizarListas() {
 		this.dineroEstado = industria.getProduccionTotal();
+		this.poblacion.pagarPoblacion(dineroEstado, obtenerSueldo(this.menores.size(), 365), Menor.class);
+		this.poblacion.pagarPoblacion(dineroEstado, obtenerSueldo(this.desempleados.size(), 182.5), Trabajador.class);
+		this.poblacion.pagarPoblacion(dineroEstado, obtenerSueldo(this.industria.getNumTrabajdores(), 730),
+				Trabajador.class);
+		this.poblacion.pagarPoblacion(dineroEstado, obtenerSueldo(this.jubilados.size(), 91.25), Jubilado.class);
 		this.poblacion.actualizarPoblacion(dineroEstado, industria, nacimientos);
 		this.desempleados = poblacion.getTrabajadores();
 		this.menores = poblacion.getMenor();
 		this.jubilados = poblacion.getJubilado();
+	}
+
+	private double obtenerSueldo(int numSeres, double sueldo) {
+		double dineroNecesario = numSeres * sueldo;
+		if (dineroNecesario > this.dineroEstado) {
+			return this.dineroEstado / numSeres;
+		} else {
+			this.dineroEstado -= dineroNecesario;
+			return sueldo;
+		}
 	}
 
 }

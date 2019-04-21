@@ -9,12 +9,12 @@ import modelo.seres.Menor;
 class MenorTest {
 
 	private Menor menor = new Menor(1);
-	
+
 	@Test
 	void testCobrar() {
 		menor.setFechaMuerte(15);
 		menor.cobrar(0, 0);
-		assertTrue(menor.getFechaMuerte() == 14.5);
+		assertEquals(menor.getFechaMuerte(), 14.5, 0.1);
 	}
 
 	@Test

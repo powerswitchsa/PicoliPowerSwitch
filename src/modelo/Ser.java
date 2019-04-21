@@ -9,8 +9,8 @@ public abstract class Ser implements Cobrable, Morible {
 
 	private String nombre;
 	private int id;
-	private int edad;
-	private int fechaMuerte;
+	private double edad;
+	private double fechaMuerte;
 
 	private double ahorros;
 	private double necesidadVital;
@@ -26,22 +26,21 @@ public abstract class Ser implements Cobrable, Morible {
 	public Ser() {
 		super();
 	}
-	
+
 	public void reducirEsperanzaVida(double NVrestante) {
-		double maxPierde = 0.5;
-		double cuenta = (0.5 * NVrestante) / this.necesidadVital;
+		double cuenta = (((NVrestante * 100) / getNecesidadVital()) * 0.5) / 100;
 		this.fechaMuerte -= cuenta;
 	}
 
-	public int getEdad() {
+	public double getEdad() {
 		return edad;
 	}
 
-	public void setEdad(int edad) {
+	public void setEdad(double edad) {
 		this.edad = edad;
 	}
 
-	public int getFechaMuerte() {
+	public double getFechaMuerte() {
 		return fechaMuerte;
 	}
 

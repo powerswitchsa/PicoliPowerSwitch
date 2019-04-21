@@ -18,10 +18,7 @@ public class Estado {
 	private ArrayList<Menor> menores;
 	private ArrayList<Jubilado> jubilados;
 
-	private int sueldoTrabajadores = 730;
-	private int sueldoMenor = 365;
-
-	private double dineroEstado;
+	private double dineroEstado = 100000;
 	private long nacimientos;
 
 	public Estado() {

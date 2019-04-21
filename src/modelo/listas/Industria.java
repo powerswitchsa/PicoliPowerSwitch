@@ -2,6 +2,7 @@ package modelo.listas;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Stack;
 
 import modelo.Factoria;
 import modelo.seres.Trabajador;
@@ -15,25 +16,31 @@ public class Industria {
 		this.factorias = new ArrayList<>();
 	}
 
-	// devuelve la produccion anual de todas las factorias
-	public long getProduccionTotal() {
-		return 0;
+	public double getProduccionTotal() {
+		double retorno = 0;
+		for (Factoria factoria : factorias) {
+			retorno += factoria.getProduccionAnual();
+		}
+		return retorno;
 	}
 
-	public void cerrarFactorias(HashSet<Trabajador> listaDesempleados) {
-
-	}
-
-	public void despedir(HashSet<Trabajador> listaDesempleados, int numTrabajadores) {
-
+	public void cerrarFactorias(Stack<Trabajador> listaDesempleados) {
+		for (Factoria factoria : factorias) {
+			if (factoria.getTrabajadores().isEmpty()) {
+				factoria.cerraFactoria(listaDesempleados);
+				factorias.remove(factoria);
+			}
+		}
 	}
 
 	public void eliminarTrabajador(int id) {
-
+		for (Factoria factoria : factorias) {
+			factoria.eliminarTrabajador(id);
+		}
 	}
 
-	public void contratar(Trabajador trabajador) {
-
+	public void crearNuevaFactoria() {
+		this.factorias.add(new Factoria());
 	}
 
 	public int getNumTrabajdores() {
@@ -46,6 +53,14 @@ public class Industria {
 
 	public ArrayList<Factoria> getFactorias() {
 		return factorias;
+	}
+
+	public void contratar(Trabajador trabajador) {
+
+	}
+
+	public void despedir(HashSet<Trabajador> listaDesempleados, int numTrabajadores) {
+
 	}
 
 }

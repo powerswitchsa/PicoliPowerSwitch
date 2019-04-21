@@ -13,6 +13,10 @@ public class Poblacion {
 
 	private int id = 0;
 	private ArrayList<Ser> seres;
+	private int fallecidos;
+	private int newJubilados;
+	private int newTrabajadores;
+	private int newMenores;
 
 	public Poblacion(int numMenor, int numTrabajadores, int numJubilados) {
 		super();
@@ -64,7 +68,6 @@ public class Poblacion {
 				seres.remove(ser);
 			}
 		}
-
 	}
 
 	// menores que añadimos a la lista
@@ -72,10 +75,8 @@ public class Poblacion {
 
 	}
 
-	// si muere un trabajador que no este desempleado, aparte de eliminarlo de
-	// la lista de poblacion, hay que eliminarlo de la factoria en la que trabaja.
-	// Los que tengan ahorros estos pasan al estado
 	private void eliminarMuertos(Double dineroEstado, Industria industria) {
+		this.fallecidos = 0;
 		for (Iterator iterator = seres.iterator(); iterator.hasNext();) {
 			Ser ser = (Ser) iterator.next();
 			if (ser.morir()) {
@@ -84,22 +85,21 @@ public class Poblacion {
 				}
 				dineroEstado += ser.getAhorros();
 				seres.remove(ser);
+				fallecidos++;
 			}
 		}
 	}
 
-	// utilizar interfaz "Cobrable"
-	// Sueldos :
-	// TRABAJADOR --> 730$ --> SIN TRAABAJO Y AHORROS , LES AYUDA EL ESTADO , PERO
-	// ESTE SOLO LE PAGA 50% DE SU NECESIDAD VITAL
-	// MENOR --> 365$ --> LOS MANTIENEN EL ESTADO
-	// JUBILADO --> 182.5$ --> CUANDO SE QUEDAN SIN AHORROS
 	public void pagarPoblacion(Double dineroEstado, double sueldo, Object tipoSer) {
 		for (Ser ser : seres) {
 			if (tipoSer.getClass() == ser.getClass()) {
 				ser.cobrar(sueldo, dineroEstado);
 			}
 		}
+	}
+
+	public ArrayList<Ser> getSeres() {
+		return seres;
 	}
 
 }

@@ -7,7 +7,6 @@ import modelo.seres.Trabajador;
 
 public class Factoria {
 
-	private boolean open = true;
 	private Stack<Trabajador> trabajadores;
 	private int maxTrabajadores = 1000;
 	private double produccionTrabajador = 1000;
@@ -41,12 +40,12 @@ public class Factoria {
 		return 0;
 	}
 
-	public boolean isOpen() {
-		return open;
-	}
-
-	public void setOpen(boolean open) {
-		this.open = open;
+	public void eliminarTrabajador(int id) {
+		for (Trabajador trabajador : trabajadores) {
+			if (trabajador.getId() == id) {
+				trabajadores.remove(trabajador);
+			}
+		}
 	}
 
 	public Stack<Trabajador> getTrabajadores() {

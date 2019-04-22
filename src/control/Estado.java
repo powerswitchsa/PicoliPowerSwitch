@@ -15,16 +15,13 @@ import utilesglobal.Utilies;
 public class Estado {
 
 	private ArrayList<Ser> seres;
-
-	private LogicaPoblacion logicaPoblacion;
-	private Industria industria;
-
 	private ArrayList<Menor> menores;
 	private Stack<Trabajador> desempleados;
 	private ArrayList<Jubilado> jubilados;
 
+	private LogicaPoblacion logicaPoblacion;
+	private Industria industria;
 	private DatosVista datosVista;
-
 	private CapitalEstado capitalEstado;
 
 	public Estado() {
@@ -35,7 +32,7 @@ public class Estado {
 		this.desempleados = new Stack<Trabajador>();
 		this.jubilados = new ArrayList<Jubilado>();
 		this.industria = new Industria();
-		this.capitalEstado = new CapitalEstado(1000);
+		this.capitalEstado = new CapitalEstado(100000);
 
 		for (int i = 0; i < 50; i++) {
 			seres.add(new Menor(logicaPoblacion.getId()));
@@ -55,17 +52,12 @@ public class Estado {
 		int[] numSeres = { menores.size(), desempleados.size(), industria.getNumTrabajdores(), jubilados.size() };
 
 		this.capitalEstado.sumarDineroEstado(industria.getProduccionTotal());
-
 		this.logicaPoblacion.pagarMenores(capitalEstado.obtenerSueldo(numSeres[0], 365), seres, capitalEstado);
 		this.logicaPoblacion.pagarDesempleados(capitalEstado.obtenerSueldo(numSeres[1], 182.5), seres, capitalEstado);
 		this.logicaPoblacion.pagarTrabajadores(capitalEstado.obtenerSueldo(numSeres[2], 730), seres, capitalEstado);
 		this.logicaPoblacion.pagarJubilados(capitalEstado.obtenerSueldo(numSeres[3], 182.5), seres, capitalEstado);
-
 		this.logicaPoblacion.envejecerPoblacion(seres);
-
-		// eliminamos a los que han muerto
-		this.logicaPoblacion.eliminarMuertos(this.capitalEstado, this.industria, this.seres);
-		// actualizamos su funciones dentro del estado
+//		this.logicaPoblacion.eliminarMuertos(this.capitalEstado, this.industria, this.seres);
 //		this.logicaPoblacion.actualizarSer(industria, seres);
 
 		this.desempleados = logicaPoblacion.getTrabajadoresDesempleados(seres);

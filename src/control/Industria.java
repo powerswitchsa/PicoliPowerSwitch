@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.Stack;
 
 import modelo.Factoria;
+import modelo.Ser;
 import modelo.seres.Trabajador;
 
 public class Industria {
@@ -56,7 +57,7 @@ public class Industria {
 		return factorias;
 	}
 
-	public void contratar(Trabajador trabajador) {
+	public void contratar(Stack<Trabajador> desempleados, ArrayList<Ser> seres) {
 
 	}
 

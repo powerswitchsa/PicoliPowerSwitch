@@ -2,7 +2,6 @@ package modelo;
 
 import interfaz.Cobrable;
 import interfaz.Morible;
-import modelo.seres.Jubilado;
 import utilesglobal.Utilies;
 
 public abstract class Ser implements Cobrable, Morible {

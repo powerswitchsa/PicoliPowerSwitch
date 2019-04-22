@@ -26,9 +26,9 @@ public class DatosVista {
 		datos.add("--------------------------------------");
 		datos.add(" Dinero Estado --> " + dineroEstado);
 		datos.add(" Factorias --> " + factorias);
-		datos.add(" Produccion Anual --> " + dineroEstado);
-		datos.add(" Demanda Anual --> " + dineroEstado);
-		datos.add(" Crecimiento Anual --> " + dineroEstado);
+		datos.add(" Produccion Anual --> ");
+		datos.add(" Demanda Anual --> ");
+		datos.add(" Crecimiento Anual --> ");
 	}
 
 	public ArrayList<String> getDatos() {

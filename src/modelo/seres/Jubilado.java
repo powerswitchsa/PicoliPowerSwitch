@@ -1,5 +1,6 @@
 package modelo.seres;
 
+import modelo.CapitalEstado;
 import modelo.Ser;
 
 public class Jubilado extends Ser {
@@ -11,11 +12,12 @@ public class Jubilado extends Ser {
 	}
 
 	@Override
-	public void cobrar(double sueldo, double dineroEstado) {
+	public void cobrar(double sueldo, CapitalEstado capitalEstado) {
 		if (getAhorros() >= getNecesidadVital()) {
 			setAhorros(getAhorros() - getNecesidadVital());
+			capitalEstado.sumarDineroEstado(sueldo);
 		} else {
-			double cuenta = getNecesidadVital() - dineroEstado;
+			double cuenta = getNecesidadVital() - sueldo;
 			if (cuenta < 0) {
 				cuenta += getAhorros();
 				if (cuenta < 0) {

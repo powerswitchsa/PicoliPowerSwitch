@@ -3,53 +3,83 @@ package control;
 import java.util.ArrayList;
 import java.util.Stack;
 
-import modelo.listas.Industria;
-import modelo.listas.Poblacion;
+import modelo.CapitalEstado;
+import modelo.DatosVista;
+import modelo.Factoria;
+import modelo.Ser;
 import modelo.seres.Jubilado;
 import modelo.seres.Menor;
 import modelo.seres.Trabajador;
+import utilesglobal.Utilies;
 
 public class Estado {
 
-	private Poblacion poblacion;
+	private ArrayList<Ser> seres;
+
+	private LogicaPoblacion logicaPoblacion;
 	private Industria industria;
 
-	private Stack<Trabajador> desempleados;
 	private ArrayList<Menor> menores;
+	private Stack<Trabajador> desempleados;
 	private ArrayList<Jubilado> jubilados;
 
-	private double dineroEstado = 100000;
-	private long nacimientos;
+	private DatosVista datosVista;
+
+	private CapitalEstado capitalEstado;
 
 	public Estado() {
 		super();
-		this.poblacion = new Poblacion(30, 100, 20);
-		this.desempleados = poblacion.getTrabajadores();
-		this.menores = poblacion.getMenor();
-		this.jubilados = poblacion.getJubilado();
+		this.seres = new ArrayList<Ser>();
+		this.logicaPoblacion = new LogicaPoblacion();
+		this.menores = new ArrayList<Menor>();
+		this.desempleados = new Stack<Trabajador>();
+		this.jubilados = new ArrayList<Jubilado>();
+		this.industria = new Industria();
+		this.capitalEstado = new CapitalEstado(1000);
+
+		for (int i = 0; i < 50; i++) {
+			seres.add(new Menor(logicaPoblacion.getId()));
+			logicaPoblacion.setId(logicaPoblacion.getId() + 1);
+		}
+		for (int i = 0; i < 100; i++) {
+			seres.add(new Trabajador(Utilies.getNombreAleatorio(), logicaPoblacion.getId()));
+			logicaPoblacion.setId(logicaPoblacion.getId() + 1);
+		}
+		for (int i = 0; i < 30; i++) {
+			seres.add(new Jubilado(Utilies.getNombreAleatorio(), logicaPoblacion.getId(), 500));
+			logicaPoblacion.setId(logicaPoblacion.getId() + 1);
+		}
 	}
 
 	public void actualizarListas() {
-		this.dineroEstado = industria.getProduccionTotal();
-		this.poblacion.pagarPoblacion(dineroEstado, obtenerSueldo(this.menores.size(), 365), Menor.class);
-		this.poblacion.pagarPoblacion(dineroEstado, obtenerSueldo(this.desempleados.size(), 182.5), Trabajador.class);
-		this.poblacion.pagarPoblacion(dineroEstado, obtenerSueldo(this.industria.getNumTrabajdores(), 730),
-				Trabajador.class);
-		this.poblacion.pagarPoblacion(dineroEstado, obtenerSueldo(this.jubilados.size(), 91.25), Jubilado.class);
-		this.poblacion.actualizarPoblacion(dineroEstado, industria, nacimientos);
-		this.desempleados = poblacion.getTrabajadores();
-		this.menores = poblacion.getMenor();
-		this.jubilados = poblacion.getJubilado();
+		int[] numSeres = { menores.size(), desempleados.size(), industria.getNumTrabajdores(), jubilados.size() };
+
+		this.capitalEstado.sumarDineroEstado(industria.getProduccionTotal());
+
+		this.logicaPoblacion.pagarMenores(capitalEstado.obtenerSueldo(numSeres[0], 365), seres, capitalEstado);
+		this.logicaPoblacion.pagarDesempleados(capitalEstado.obtenerSueldo(numSeres[1], 182.5), seres, capitalEstado);
+		this.logicaPoblacion.pagarTrabajadores(capitalEstado.obtenerSueldo(numSeres[2], 730), seres, capitalEstado);
+		this.logicaPoblacion.pagarJubilados(capitalEstado.obtenerSueldo(numSeres[3], 182.5), seres, capitalEstado);
+
+		this.logicaPoblacion.envejecerPoblacion(seres);
+
+		// eliminamos a los que han muerto
+		this.logicaPoblacion.eliminarMuertos(this.capitalEstado, this.industria, this.seres);
+		// actualizamos su funciones dentro del estado
+//		this.logicaPoblacion.actualizarSer(industria, seres);
+
+		this.desempleados = logicaPoblacion.getTrabajadoresDesempleados(seres);
+		this.menores = logicaPoblacion.getMenor(seres);
+		this.jubilados = logicaPoblacion.getJubilado(seres);
+
+		this.datosVista = new DatosVista(this.seres.size(), this.menores.size(), this.industria.getNumTrabajdores(),
+				this.jubilados.size(), this.logicaPoblacion.getNewMenores(), this.logicaPoblacion.getFallecidos(),
+				this.logicaPoblacion.getNewJubilados(), this.logicaPoblacion.getNewTrabajadores(),
+				industria.getFactorias().size(), capitalEstado.getDineroEstado(), this.desempleados.size());
 	}
 
-	private double obtenerSueldo(int numSeres, double sueldo) {
-		double dineroNecesario = numSeres * sueldo;
-		if (dineroNecesario > this.dineroEstado) {
-			return this.dineroEstado / numSeres;
-		} else {
-			this.dineroEstado -= dineroNecesario;
-			return sueldo;
-		}
+	public DatosVista getDatosVista() {
+		return datosVista;
 	}
 
 }

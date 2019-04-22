@@ -9,12 +9,13 @@ public class DatosVista {
 	private ArrayList<String> datos = new ArrayList<String>();
 
 	public DatosVista(int habitantes, int menores, int trabajadores, int jubilados, int nacimientos, int fallecimientos,
-			int jubilaciones, int nuevosTrabajadores, int factorias, int dineroEstado) {
+			int jubilaciones, int nuevosTrabajadores, int factorias, double dineroEstado, int desempleados) {
 		super();
 		datos.add(" POBLACION :");
 		datos.add(" Habitantes --> " + habitantes);
 		datos.add(" Menores --> " + menores);
 		datos.add(" Trabajadores --> " + trabajadores);
+		datos.add(" Desempleados --> " + desempleados);
 		datos.add(" Jubilados --> " + jubilados);
 		datos.add("--------------------------------------");
 		datos.add(" CRECIMIENTO :");
@@ -23,6 +24,7 @@ public class DatosVista {
 		datos.add(" Nuevos Trabajadores --> " + nuevosTrabajadores);
 		datos.add(" Jubilaciones --> " + jubilaciones);
 		datos.add("--------------------------------------");
+		datos.add(" Dinero Estado --> " + dineroEstado);
 		datos.add(" Factorias --> " + factorias);
 		datos.add(" Produccion Anual --> " + dineroEstado);
 		datos.add(" Demanda Anual --> " + dineroEstado);

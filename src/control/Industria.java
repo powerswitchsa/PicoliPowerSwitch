@@ -1,4 +1,4 @@
-package modelo.listas;
+package control;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -14,6 +14,7 @@ public class Industria {
 	public Industria() {
 		super();
 		this.factorias = new ArrayList<>();
+		this.factorias.add(new Factoria());
 	}
 
 	public double getProduccionTotal() {

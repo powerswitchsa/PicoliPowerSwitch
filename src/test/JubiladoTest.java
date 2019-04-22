@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+import modelo.CapitalEstado;
 import modelo.seres.Jubilado;
 
 class JubiladoTest {
@@ -12,9 +13,10 @@ class JubiladoTest {
 
 	@Test
 	void testCobrar() {
+		CapitalEstado capitalEstado = new CapitalEstado(0);
 		double dineroEstado = 0;
 		jubilado.setAhorros(1000);
-		jubilado.cobrar(0, dineroEstado);
+		jubilado.cobrar(0, capitalEstado);
 		assertTrue(jubilado.getAhorros() == 1000 - 182.5);
 	}
 

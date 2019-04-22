@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+import modelo.CapitalEstado;
 import modelo.seres.Trabajador;
 
 class TrabajadorTest {
@@ -13,10 +14,10 @@ class TrabajadorTest {
 
 	@Test
 	void testCobrar() {
-		double dineroEstado = 0;
-		trabajador.cobrar(730, dineroEstado);
+		CapitalEstado capitalEstado = new CapitalEstado(0);
+		trabajador.cobrar(730, capitalEstado);
 		assertEquals((730 - 365) / 2, trabajador.getAhorros());
-		assertEquals((730 - 365) / 2, dineroEstado);
+		assertEquals((730 - 365) / 2, capitalEstado.getDineroEstado());
 	}
 
 	@Test

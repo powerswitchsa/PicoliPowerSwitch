@@ -23,21 +23,9 @@ public class Ventana extends JFrame {
 
 	private JPanel contentPane;
 	private JTextArea textArea;
-
-	private DatosVista abc = new DatosVista(10, 85, 4, 35, 22, 76, 85, 40, 30, 20); // para ver la vista con los text
-
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Ventana frame = new Ventana();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	private JButton btnPasarAño;
+	private JButton btnAumentarNacimientos;
+	private JButton btnDisminuirNacimientos;
 
 	public Ventana() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -46,18 +34,19 @@ public class Ventana extends JFrame {
 		contentPane.setBackground(Color.BLACK);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
+		setVisible(true);
 
-		JButton btnNewButton = new JButton("A\u00F1o");
-		btnNewButton.setBorder(new MatteBorder(2, 2, 2, 2, (Color) new Color(0, 0, 0)));
-		btnNewButton.setBackground(Color.WHITE);
-		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnPasarAño = new JButton("A\u00F1o");
+		btnPasarAño.setBorder(new MatteBorder(2, 2, 2, 2, (Color) new Color(0, 0, 0)));
+		btnPasarAño.setBackground(Color.WHITE);
+		btnPasarAño.setFont(new Font("Tahoma", Font.PLAIN, 20));
 
-		JButton btnAumentarNacimientos = new JButton("Aumentar Produccion");
+		btnAumentarNacimientos = new JButton("Aumentar Produccion");
 		btnAumentarNacimientos.setBorder(new MatteBorder(2, 2, 2, 2, (Color) new Color(0, 0, 0)));
 		btnAumentarNacimientos.setBackground(Color.WHITE);
 		btnAumentarNacimientos.setFont(new Font("Tahoma", Font.PLAIN, 20));
 
-		JButton btnDisminuirNacimientos = new JButton("Disminuir Produccion");
+		btnDisminuirNacimientos = new JButton("Disminuir Produccion");
 		btnDisminuirNacimientos.setBorder(new MatteBorder(2, 2, 2, 2, (Color) new Color(0, 0, 0)));
 		btnDisminuirNacimientos.setBackground(Color.WHITE);
 		btnDisminuirNacimientos.setFont(new Font("Tahoma", Font.PLAIN, 20));
@@ -74,7 +63,7 @@ public class Ventana extends JFrame {
 						.addComponent(textArea, GroupLayout.DEFAULT_SIZE, 325, Short.MAX_VALUE).addGap(30)
 						.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 								.addComponent(btnDisminuirNacimientos, GroupLayout.DEFAULT_SIZE, 221, Short.MAX_VALUE)
-								.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+								.addComponent(btnPasarAño, GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
 								.addComponent(btnAumentarNacimientos, GroupLayout.DEFAULT_SIZE,
 										GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 						.addGap(30)));
@@ -83,15 +72,13 @@ public class Ventana extends JFrame {
 				.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 						.addComponent(textArea, GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
 						.addGroup(gl_contentPane.createSequentialGroup()
-								.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE)
+								.addComponent(btnPasarAño, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE)
 								.addGap(30)
 								.addComponent(btnAumentarNacimientos, GroupLayout.PREFERRED_SIZE, 75,
 										GroupLayout.PREFERRED_SIZE)
 								.addGap(30).addComponent(btnDisminuirNacimientos, GroupLayout.PREFERRED_SIZE, 75,
 										GroupLayout.PREFERRED_SIZE)))
 				.addGap(30)));
-
-		actualizarDatosVista(abc);
 
 		contentPane.setLayout(gl_contentPane);
 	}
@@ -102,4 +89,25 @@ public class Ventana extends JFrame {
 			textArea.setText(textArea.getText().concat(string) + "\n");
 		}
 	}
+
+	public JPanel getContentPane() {
+		return contentPane;
+	}
+
+	public JTextArea getTextArea() {
+		return textArea;
+	}
+
+	public JButton getBtnPasarAño() {
+		return btnPasarAño;
+	}
+
+	public JButton getBtnAumentarNacimientos() {
+		return btnAumentarNacimientos;
+	}
+
+	public JButton getBtnDisminuirNacimientos() {
+		return btnDisminuirNacimientos;
+	}
+
 }

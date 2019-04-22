@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+import modelo.CapitalEstado;
 import modelo.seres.Menor;
 
 class MenorTest {
@@ -12,8 +13,9 @@ class MenorTest {
 
 	@Test
 	void testCobrar() {
+		CapitalEstado capitalEstado = new CapitalEstado(0);
 		menor.setFechaMuerte(15);
-		menor.cobrar(0, 0);
+		menor.cobrar(0, capitalEstado);
 		assertEquals(menor.getFechaMuerte(), 14.5, 0.1);
 	}
 

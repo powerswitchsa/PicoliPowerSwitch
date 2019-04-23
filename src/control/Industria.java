@@ -6,7 +6,6 @@ import java.util.Stack;
 
 import modelo.Factoria;
 import modelo.Ser;
-import modelo.seres.Trabajador;
 
 public class Industria {
 
@@ -26,7 +25,7 @@ public class Industria {
 		return retorno;
 	}
 
-	public void cerrarFactorias(Stack<Trabajador> listaDesempleados) {
+	public void cerrarFactorias(Stack<Ser> listaDesempleados) {
 		for (Factoria factoria : factorias) {
 			if (factoria.getTrabajadores().isEmpty()) {
 				factoria.cerraFactoria(listaDesempleados);
@@ -35,9 +34,13 @@ public class Industria {
 		}
 	}
 
-	public void eliminarTrabajador(int id) {
-		for (Factoria factoria : factorias) {
-			factoria.eliminarTrabajador(id);
+	public void eliminarTrabajadores(ArrayList<Integer> listaId) {
+		for (Factoria fact : this.factorias) {
+			for (Ser ser : fact.getTrabajadores()) {
+				if (listaId.contains(ser.getId())) {
+					fact.getTrabajadores().remove(ser);
+				}
+			}
 		}
 	}
 
@@ -45,23 +48,15 @@ public class Industria {
 		this.factorias.add(new Factoria());
 	}
 
-	public int getNumTrabajdores() {
-		int numTrabajadores = 0;
-		for (Factoria factoria : factorias) {
-			numTrabajadores += factoria.getTrabajadores().size();
-		}
-		return numTrabajadores;
-	}
-
 	public ArrayList<Factoria> getFactorias() {
 		return factorias;
 	}
 
-	public void contratar(Stack<Trabajador> desempleados, ArrayList<Ser> seres) {
+	public void contratar(Stack<Ser> desempleados, ArrayList<Ser> seres) {
 
 	}
 
-	public void despedir(HashSet<Trabajador> listaDesempleados, int numTrabajadores) {
+	public void despedir(HashSet<Ser> listaDesempleados, int numTrabajadores) {
 
 	}
 

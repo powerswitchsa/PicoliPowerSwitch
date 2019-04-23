@@ -1,35 +1,34 @@
 package modelo;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Stack;
 
-import modelo.seres.Trabajador;
-
 public class Factoria {
 
-	private Stack<Trabajador> trabajadores;
+	private Stack<Ser> trabajadores;
 	private int maxTrabajadores = 1000;
 	private double produccionTrabajador = 1000;
 
 	public Factoria() {
 		super();
-		this.trabajadores = new Stack<Trabajador>();
+		this.trabajadores = new Stack<Ser>();
 	}
 
 	// la cantidad de trabajadores no pueden ser mayor a su maxTrabajadores
-	public void contratarTrabajador(Trabajador trabajador) {
+	public void contratarTrabajador(Ser trabajador) {
 
 	}
 
 	// Se despide una cantidad de trabajadores, y estos seran siempre los ultimos en
-	// entrar
-	public void despedirTrabajadores(Stack<Trabajador> listaDesempleados, int numDespedidos) {
-
+	// entrar , los despedidos son metidos en una lista y retornados
+	public ArrayList<Ser> despedirTrabajadores(ArrayList<Ser> listaDesempleados, int numDespedidos) {
+		return null;
 	}
 
 	// despide a todos los trabajadores
-	public void cerraFactoria(Stack<Trabajador> listaDesempleados) {
-
+	public ArrayList<Ser> cerraFactoria(Stack<Ser> listaDesempleados) {
+		return null;
 	}
 
 	// Este me devuelve el dinero anual que a producido , quitando los gastos de
@@ -41,14 +40,14 @@ public class Factoria {
 	}
 
 	public void eliminarTrabajador(int id) {
-		for (Trabajador trabajador : trabajadores) {
+		for (Ser trabajador : trabajadores) {
 			if (trabajador.getId() == id) {
 				trabajadores.remove(trabajador);
 			}
 		}
 	}
 
-	public Stack<Trabajador> getTrabajadores() {
+	public Stack<Ser> getTrabajadores() {
 		return trabajadores;
 	}
 

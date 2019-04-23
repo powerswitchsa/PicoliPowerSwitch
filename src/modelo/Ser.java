@@ -1,36 +1,49 @@
 package modelo;
 
-import interfaz.Cobrable;
-import interfaz.Morible;
 import utilesglobal.Utilies;
 
-public abstract class Ser implements Cobrable, Morible {
+public class Ser {
 
 	private String nombre;
 	private int id;
-	private double edad;
+	private TipoSeres tipoSer;
 	private double fechaMuerte;
-
+	private double edad;
 	private double ahorros;
-	private double necesidadVital;
 
-	public Ser(String nombre, int id) {
+	public Ser(int id, TipoSeres tipo) {
 		super();
-		this.nombre = Utilies.getNombreAleatorio();
 		this.id = id;
-		this.necesidadVital = 365;
+		this.nombre = Utilies.getNombreAleatorio();
 		this.fechaMuerte = Utilies.obtenerAleatorio(90);
+		this.tipoSer = tipo;
 	}
 
-	public Ser() {
-		super();
+	public void pagarTrabajador(CapitalEstado capitalEstado, double pagaEstado) {
+
+	}
+
+	public void pagarMenor(double paga) {
+
+	}
+
+	public void pagaDesempleado(double ayudaEstado) {
+
+	}
+
+	public void subsidioJubilado() {
+
 	}
 
 	public void reducirEsperanzaVida(double NVrestante) {
-		double cuenta = (((NVrestante * 100) / getNecesidadVital()) * 0.5) / 100;
-		this.fechaMuerte -= cuenta;
+		this.fechaMuerte -= (((NVrestante * 100) / this.tipoSer.getNV()) * 0.5) / 100;
 	}
 
+	public boolean isMuerto() {
+		return (this.edad >= this.fechaMuerte);
+	}
+
+	// getters y setters
 	public double getEdad() {
 		return edad;
 	}
@@ -47,14 +60,6 @@ public abstract class Ser implements Cobrable, Morible {
 		this.fechaMuerte = fechaMuerte;
 	}
 
-	public double getNecesidadVital() {
-		return necesidadVital;
-	}
-
-	public void setNecesidadVital(float necesidadVital) {
-		this.necesidadVital = necesidadVital;
-	}
-
 	public double getAhorros() {
 		return ahorros;
 	}
@@ -69,6 +74,14 @@ public abstract class Ser implements Cobrable, Morible {
 
 	public int getId() {
 		return id;
+	}
+
+	public TipoSeres getTipoSer() {
+		return tipoSer;
+	}
+
+	public void setTipoSer(TipoSeres tipoSer) {
+		this.tipoSer = tipoSer;
 	}
 
 }

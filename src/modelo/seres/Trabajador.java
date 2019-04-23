@@ -1,5 +1,6 @@
 package modelo.seres;
 
+import modelo.CapitalEstado;
 import modelo.Ser;
 
 public class Trabajador extends Ser {
@@ -21,7 +22,7 @@ public class Trabajador extends Ser {
 	// importante ya esta creado el metodo que le reduce la vida, ha este le entra
 	// lo que le falta para tener el max NV
 	@Override
-	public void cobrar(double sueldo, double dineroEstado) {
+	public void cobrar(double sueldo, CapitalEstado capitalEstado) {
 		// TODO Auto-generated method stub
 
 	}

@@ -1,10 +1,11 @@
-package modelo.listas;
+package control;
 
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Stack;
 
 import modelo.Factoria;
+import modelo.Ser;
 import modelo.seres.Trabajador;
 
 public class Industria {
@@ -14,6 +15,7 @@ public class Industria {
 	public Industria() {
 		super();
 		this.factorias = new ArrayList<>();
+		this.factorias.add(new Factoria());
 	}
 
 	public double getProduccionTotal() {
@@ -55,7 +57,7 @@ public class Industria {
 		return factorias;
 	}
 
-	public void contratar(Trabajador trabajador) {
+	public void contratar(Stack<Trabajador> desempleados, ArrayList<Ser> seres) {
 
 	}
 

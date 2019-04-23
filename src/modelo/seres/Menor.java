@@ -1,5 +1,6 @@
 package modelo.seres;
 
+import modelo.CapitalEstado;
 import modelo.Ser;
 import utilesglobal.Utilies;
 
@@ -12,7 +13,7 @@ public class Menor extends Ser {
 	}
 
 	@Override
-	public void cobrar(double sueldo, double dineroEstado) {
+	public void cobrar(double sueldo, CapitalEstado capitalEstado) {
 		if (sueldo < getNecesidadVital()) {
 			reducirEsperanzaVida(getNecesidadVital() - sueldo);
 		}

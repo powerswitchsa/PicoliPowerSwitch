@@ -1,25 +1,43 @@
 package control;
 
-import modelo.vista.Datos;
-import modelo.vista.DatosEstadoGlobal;
-import modelo.vista.DatosEstadoLocal;
-import modelo.vista.DatosPoblacion;
-import vista.Comunicador;
-import vista.UI;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class ParaUI extends UI {
-	
+import vista.Ventana;
+
+public class ParaUI extends Ventana {
+
 	private Estado estado;
 
-	public void setDatosEnElInterfazUsuario(DatosPoblacion datosPoblacion, DatosEstadoLocal datosEstadoLocal,
-			DatosEstadoGlobal datosEstadoGlobal) {
+	public ParaUI() {
+		super();
 		this.estado = new Estado();
-		rellenarComunicador(comunicadorPoblacion, datosPoblacion);
-		rellenarComunicador(comunicadorEstadoLocal, datosEstadoLocal);
-		rellenarComunicador(comunicadorEstadoGlobal, datosEstadoGlobal);
+		this.estado.actualizarListas();
+		actualizarDatosVista(estado.getDatosVista());
+		listener();
 	}
 
-	public void rellenarComunicador(Comunicador comunicador, Datos datos) {
-		comunicador.asignarValores(datos);
+	private void listener() {
+
+		getBtnPasarAño().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				estado.actualizarListas();
+				actualizarDatosVista(estado.getDatosVista());
+			}
+		});
+
+		getBtnAumentarNacimientos().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+			}
+		});
+
+		getBtnDisminuirNacimientos().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+			}
+		});
+
 	}
+
 }

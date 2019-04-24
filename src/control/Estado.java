@@ -15,7 +15,7 @@ public class Estado {
 
 	public Estado() {
 		super();
-		this.poblacion = new Poblacion(50, 100, 30);
+		this.poblacion = new Poblacion(5000, 10000, 3000);
 		this.industria = new Industria();
 		this.capitalEstado = new CapitalEstado(100000);
 		this.datosVista = new DatosVista(poblacion.getSeres().size(), poblacion.getListSer(TipoSeres.menor).size(),

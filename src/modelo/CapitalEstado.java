@@ -21,6 +21,10 @@ public class CapitalEstado {
 		}
 	}
 
+	public double obtenerSubsidioJubilado(double subsidioTotal) {
+		return 0; // % que hay que aplicar al sueldo
+	}
+
 	public double getDineroEstado() {
 		return dineroEstado;
 	}

@@ -21,7 +21,7 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.Color;
 import javax.swing.border.MatteBorder;
 
-public class VentanaNueva extends JFrame {
+public class Ventana extends JFrame {
 
 	private JPanel contentPane;
 	private JPanel panel;
@@ -29,7 +29,7 @@ public class VentanaNueva extends JFrame {
 	private JButton btnAumentarNacimientos;
 	private JButton btnDisminuirNacimientos;
 
-	public VentanaNueva() {
+	public Ventana() {
 		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 778, 800);

@@ -1,6 +1,7 @@
 package control;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 
 import modelo.CapitalEstado;
@@ -89,14 +90,14 @@ public class Poblacion {
 		int paga = getListSer(TipoSeres.menor).size();
 		for (Ser ser : seres) {
 			if (ser.getTipoSer() == TipoSeres.menor)
-				ser.pagarMenor(capitalEstado.obtenerSueldo(paga, ser.getTipoSer().getSueldo()));
+				ser.subsidioMenor(capitalEstado.obtenerSueldo(paga, ser.getTipoSer().getSueldo()));
 		}
 	}
 
 	public void pagarDesempleados(CapitalEstado capitalEstado) {
 		for (Ser ser : seres) {
 			if (ser.getTipoSer() == TipoSeres.desempleado)
-				ser.pagaDesempleado(capitalEstado.obtenerSueldo(getListSer(TipoSeres.desempleado).size(),
+				ser.subsidioDesempleado(capitalEstado.obtenerSueldo(getListSer(TipoSeres.desempleado).size(),
 						ser.getTipoSer().getSueldo()));
 		}
 	}
@@ -112,7 +113,28 @@ public class Poblacion {
 	}
 
 	public void pagarJubilados(CapitalEstado capitalEstado) {
+		ArrayList<Ser> pensionistas = new ArrayList<>();
+		double subsidioTotal = getSubsidioTotalJubilados(pensionistas);
+		double porcentaje = capitalEstado.obtenerSubsidioJubilado(subsidioTotal);
+		for (Ser ser : seres) {
+			if (pensionistas.contains(ser)) {
+				ser.subsidioJubilado(porcentaje * ser.getNVRestanteJubilado());
+			}
+		}
+	}
 
+	private double getSubsidioTotalJubilados(ArrayList<Ser> pensionistas) {
+		double retorno = 0;
+		for (Ser ser : seres) {
+			if (ser.getTipoSer() == TipoSeres.jubilado) {
+				double dinero = ser.getNVRestanteJubilado();
+				if (dinero != 0) {
+					pensionistas.add(ser);
+					retorno += dinero;
+				}
+			}
+		}
+		return retorno;
 	}
 
 	public void setId(int id) {

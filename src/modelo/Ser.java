@@ -11,19 +11,20 @@ public class Ser {
 	private double edad;
 	private double ahorros;
 
-	public Ser(int id, TipoSeres tipo) {
+	public Ser(int id) {
 		super();
 		this.id = id;
 		this.nombre = Utilies.getNombreAleatorio();
 		this.fechaMuerte = Utilies.obtenerAleatorio(90);
-		this.tipoSer = tipo;
+		this.tipoSer = TipoSeres.menor;
+		this.edad = 0;
 	}
 
 	public Ser(int id, TipoSeres tipo, double edad) {
 		super();
 		this.id = id;
 		this.nombre = Utilies.getNombreAleatorio();
-		this.fechaMuerte = Utilies.obtenerAleatorio(90);
+		this.fechaMuerte = Utilies.obtenerAleatorio((int) this.edad, 90);
 		this.tipoSer = tipo;
 		this.edad = edad;
 	}

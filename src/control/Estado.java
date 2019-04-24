@@ -44,8 +44,8 @@ public class Estado {
 				poblacion.getListSer(TipoSeres.desempleado).size());
 	}
 
-	public DatosVista getDatosVista() {
-		return datosVista;
+	public ArrayList<String> getDatosVista() {
+		return datosVista.getDatos();
 	}
 
 }

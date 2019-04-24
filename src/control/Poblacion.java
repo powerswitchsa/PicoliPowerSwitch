@@ -6,6 +6,7 @@ import java.util.Iterator;
 import modelo.CapitalEstado;
 import modelo.Ser;
 import modelo.TipoSeres;
+import utilesglobal.Utilies;
 
 public class Poblacion {
 
@@ -20,15 +21,15 @@ public class Poblacion {
 	public Poblacion(int menores, int desempleados, int jubilados) {
 		super();
 		for (int i = 0; i < menores; i++) {
-			seres.add(new Ser(this.id, TipoSeres.menor));
+			seres.add(new Ser(this.id, TipoSeres.menor, Utilies.obtenerAleatorio(17)));
 			this.id++;
 		}
 		for (int i = 0; i < desempleados; i++) {
-			seres.add(new Ser(this.id, TipoSeres.desempleado));
+			seres.add(new Ser(this.id, TipoSeres.desempleado, Utilies.obtenerAleatorio(18, 64)));
 			this.id++;
 		}
 		for (int i = 0; i < jubilados; i++) {
-			seres.add(new Ser(this.id, TipoSeres.jubilado));
+			seres.add(new Ser(this.id, TipoSeres.jubilado, Utilies.obtenerAleatorio(65, 90)));
 			this.id++;
 		}
 	}

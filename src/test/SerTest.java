@@ -12,7 +12,7 @@ class SerTest {
 
 	@Test
 	void testPagarTrabajador() {
-		Ser trabajador = new Ser(0, TipoSeres.trabajador);
+		Ser trabajador = new Ser(0, TipoSeres.trabajador, 25);
 		CapitalEstado capitalEstado = new CapitalEstado(0);
 		trabajador.setAhorros(0);
 		trabajador.pagarTrabajador(capitalEstado, 730);
@@ -24,9 +24,9 @@ class SerTest {
 	void testPagarMenor() {
 		Ser menor = new Ser(0, TipoSeres.menor, 5);
 		menor.setFechaMuerte(10);
-		menor.pagarMenor(365);
+		menor.subsidioMenor(365);
 		assertTrue(menor.getFechaMuerte() == 10);
-		menor.pagarMenor(0);
+		menor.subsidioMenor(0);
 		assertTrue(menor.getFechaMuerte() == 9.5);
 	}
 
@@ -34,9 +34,9 @@ class SerTest {
 	void testPagaDesempleado() {
 		Ser desempleado = new Ser(0, TipoSeres.desempleado, 30);
 		desempleado.setAhorros(500);
-		desempleado.pagaDesempleado(182.5);
+		desempleado.subsidioDesempleado(182.5);
 		assertEquals(500 - 182.5, desempleado.getAhorros());
-		desempleado.pagaDesempleado(0);
+		desempleado.subsidioDesempleado(0);
 		assertEquals(500 - (182.5 * 3), desempleado.getAhorros());
 	}
 
@@ -54,7 +54,7 @@ class SerTest {
 
 	@Test
 	void testReducirEsperanzaVida() {
-		Ser ser = new Ser(1, TipoSeres.trabajador);
+		Ser ser = new Ser(1, TipoSeres.trabajador, 30);
 		ser.setFechaMuerte(30);
 		ser.reducirEsperanzaVida(365);
 		assertEquals(29.5, ser.getFechaMuerte(), 0.5);
@@ -64,7 +64,7 @@ class SerTest {
 
 	@Test
 	void testIsMuerto() {
-		Ser ser = new Ser(1, TipoSeres.trabajador);
+		Ser ser = new Ser(1, TipoSeres.trabajador, 30);
 		ser.setEdad(30);
 		ser.setFechaMuerte(30);
 		assertTrue(ser.isMuerto());

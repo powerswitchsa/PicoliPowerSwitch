@@ -3,16 +3,27 @@ package control;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import vista.VentanaNueva;
+import vista.Ventana;
 
-public class ParaUI extends VentanaNueva {
+public class ParaUI extends Ventana {
 
 	private Estado estado;
 
 	public ParaUI() {
 		super();
 		this.estado = new Estado();
-		actualizarDatos(estado.getDatosVista().getDatos());
+		actualizarDatos(estado.getDatosVista());
+
+		boolean salir = false;
+		do {
+			estado.actualizarListas();
+			actualizarDatos(estado.getDatosVista());
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+//				e.printStackTrace();
+			}
+		} while (!salir);
 		listener();
 	}
 
@@ -21,7 +32,7 @@ public class ParaUI extends VentanaNueva {
 		getBtnPasarAño().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				estado.actualizarListas();
-				actualizarDatos(estado.getDatosVista().getDatos());
+				actualizarDatos(estado.getDatosVista());
 			}
 		});
 

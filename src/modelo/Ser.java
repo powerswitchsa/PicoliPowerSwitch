@@ -11,32 +11,37 @@ public class Ser {
 	private double edad;
 	private double ahorros;
 
-	public Ser(int id, TipoSeres tipo) {
+	public Ser(int id) {
 		super();
 		this.id = id;
 		this.nombre = Utilies.getNombreAleatorio();
 		this.fechaMuerte = Utilies.obtenerAleatorio(90);
-		this.tipoSer = tipo;
+		this.tipoSer = TipoSeres.menor;
+		this.edad = 0;
 	}
 
 	public Ser(int id, TipoSeres tipo, double edad) {
 		super();
 		this.id = id;
 		this.nombre = Utilies.getNombreAleatorio();
-		this.fechaMuerte = Utilies.obtenerAleatorio(90);
-		this.tipoSer = tipo;
 		this.edad = edad;
+		this.fechaMuerte = Utilies.obtenerAleatorio((int) this.edad, 90);
+		this.tipoSer = tipo;
+	}
+
+	public double getNVRestanteJubilado() {
+		return 0;
 	}
 
 	public void pagarTrabajador(CapitalEstado capitalEstado, double pagaEstado) {
 
 	}
 
-	public void pagarMenor(double paga) {
+	public void subsidioMenor(double paga) {
 
 	}
 
-	public void pagaDesempleado(double ayudaEstado) {
+	public void subsidioDesempleado(double ayudaEstado) {
 
 	}
 

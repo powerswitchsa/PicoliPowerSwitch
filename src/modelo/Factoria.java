@@ -1,7 +1,6 @@
 package modelo;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.Stack;
 
 public class Factoria {
@@ -31,10 +30,7 @@ public class Factoria {
 		return null;
 	}
 
-	// Este me devuelve el dinero anual que a producido , quitando los gastos de
-	// mantenimiento .Vamos a establecer un coste de mantenimiento anual de las
-	// factorías
-	// que sera un porcentaje de su producción máxima 5%
+	// Este me devuelve el dinero anual que a producido
 	public double getProduccionAnual() {
 		return 0;
 	}

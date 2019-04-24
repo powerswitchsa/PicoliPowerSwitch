@@ -6,6 +6,7 @@ import java.util.Stack;
 
 import modelo.Factoria;
 import modelo.Ser;
+import modelo.TipoSeres;
 
 public class Industria {
 

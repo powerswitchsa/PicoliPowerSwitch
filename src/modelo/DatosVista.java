@@ -2,8 +2,6 @@ package modelo;
 
 import java.util.ArrayList;
 
-import control.Estado;
-
 public class DatosVista {
 
 	private ArrayList<String> datos = new ArrayList<String>();

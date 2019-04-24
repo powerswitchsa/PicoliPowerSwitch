@@ -12,7 +12,6 @@ public class ParaUI extends VentanaNueva {
 	public ParaUI() {
 		super();
 		this.estado = new Estado();
-		this.estado.actualizarListas();
 		actualizarDatos(estado.getDatosVista().getDatos());
 		listener();
 	}

@@ -18,7 +18,11 @@ public class Estado {
 		this.poblacion = new Poblacion(50, 100, 30);
 		this.industria = new Industria();
 		this.capitalEstado = new CapitalEstado(100000);
-
+		this.datosVista = new DatosVista(poblacion.getSeres().size(), poblacion.getListSer(TipoSeres.menor).size(),
+				poblacion.getListSer(TipoSeres.trabajador).size(), poblacion.getListSer(TipoSeres.jubilado).size(),
+				poblacion.getNewMenores(), poblacion.getFallecidos(), poblacion.getNewJubilados(),
+				poblacion.getNewTrabajadores(), industria.getFactorias().size(), capitalEstado.getDineroEstado(),
+				poblacion.getListSer(TipoSeres.desempleado).size());
 	}
 
 	public void actualizarListas() {

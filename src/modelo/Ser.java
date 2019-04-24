@@ -19,6 +19,15 @@ public class Ser {
 		this.tipoSer = tipo;
 	}
 
+	public Ser(int id, TipoSeres tipo, double edad) {
+		super();
+		this.id = id;
+		this.nombre = Utilies.getNombreAleatorio();
+		this.fechaMuerte = Utilies.obtenerAleatorio(90);
+		this.tipoSer = tipo;
+		this.edad = edad;
+	}
+
 	public void pagarTrabajador(CapitalEstado capitalEstado, double pagaEstado) {
 
 	}
@@ -31,8 +40,20 @@ public class Ser {
 
 	}
 
-	public void subsidioJubilado() {
+	public void subsidioJubilado(double subsudio) {
 
+	}
+
+	public void setDesempleado() {
+		this.tipoSer = TipoSeres.desempleado;
+	}
+
+	public void setTrabajador() {
+		this.tipoSer = TipoSeres.trabajador;
+	}
+
+	public void setJubilar() {
+		this.tipoSer = TipoSeres.jubilado;
 	}
 
 	public void reducirEsperanzaVida(double NVrestante) {

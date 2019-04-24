@@ -35,6 +35,18 @@ public class Ser {
 
 	}
 
+	public void setDesempleado() {
+		this.tipoSer = TipoSeres.desempleado;
+	}
+
+	public void setTrabajador() {
+		this.tipoSer = TipoSeres.trabajador;
+	}
+
+	public void setJubilar() {
+		this.tipoSer = TipoSeres.jubilado;
+	}
+
 	public void reducirEsperanzaVida(double NVrestante) {
 		this.fechaMuerte -= (((NVrestante * 100) / this.tipoSer.getNV()) * 0.5) / 100;
 	}

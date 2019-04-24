@@ -2,7 +2,6 @@ package control;
 
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.Stack;
 
 import modelo.CapitalEstado;
 import modelo.Ser;
@@ -32,7 +31,6 @@ public class Poblacion {
 			seres.add(new Ser(this.id, TipoSeres.jubilado));
 			this.id++;
 		}
-		System.out.println(seres.size());
 	}
 
 	public ArrayList<Ser> getListSer(TipoSeres tipoSer) {

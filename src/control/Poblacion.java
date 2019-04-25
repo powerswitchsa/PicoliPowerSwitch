@@ -18,6 +18,13 @@ public class Poblacion {
 	private int newTrabajadores;
 	private int newMenores;
 
+	public void resetDatos() {
+		this.fallecidos = 0;
+		this.newJubilados = 0;
+		this.newTrabajadores = 0;
+		this.newMenores = 0;
+	}
+
 	public Poblacion(int menores, int desempleados, int jubilados) {
 		super();
 		for (int i = 0; i < menores; i++) {
@@ -64,7 +71,6 @@ public class Poblacion {
 	}
 
 	public ArrayList<Integer> actualizarSer() {
-		this.newJubilados = 0;
 		ArrayList<Integer> listId = new ArrayList<Integer>();
 		for (Ser ser : this.seres) {
 			if (ser.getEdad() == 18 && ser.getTipoSer() == TipoSeres.menor) {
@@ -83,6 +89,7 @@ public class Poblacion {
 		}
 		for (int i = 0; i < this.newJubilados; i++) {
 			this.seres.add(new Ser(this.id, TipoSeres.menor, 0));
+			this.newMenores++;
 			this.id++;
 		}
 		return listId;
@@ -104,10 +111,9 @@ public class Poblacion {
 	}
 
 	public void pagarMenores(CapitalEstado capitalEstado) {
-		int paga = getNumTipoSer(TipoSeres.menor);
 		for (Ser ser : seres) {
 			if (ser.getTipoSer() == TipoSeres.menor)
-				ser.subsidioMenor(capitalEstado.obtenerSueldo(paga, ser.getTipoSer().getSueldo()));
+				ser.subsidioMenor(capitalEstado.getSubsidioMenor(getNumTipoSer(TipoSeres.menor)));
 		}
 	}
 

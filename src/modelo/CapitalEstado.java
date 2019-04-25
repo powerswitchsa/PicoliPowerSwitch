@@ -12,13 +12,27 @@ public class CapitalEstado {
 	public double obtenerSueldo(int numSeres, double sueldo) {
 		double dineroNecesario = numSeres * sueldo;
 		if (dineroNecesario > this.dineroEstado) {
-			sueldo = this.dineroEstado / numSeres;
+			double cuenta = this.dineroEstado / numSeres;
 			this.dineroEstado -= dineroNecesario;
-			return sueldo;
+			return cuenta;
 		} else {
 			this.dineroEstado -= dineroNecesario;
-			return sueldo;
+			double cuenta = sueldo;
+			return cuenta;
 		}
+	}
+
+	public double getSubsidioMenor(double numMenores) {
+		double dineroNecesario = numMenores * 365;
+		if (dineroNecesario < this.dineroEstado) {
+			this.dineroEstado -= dineroNecesario;
+			return 365;
+		}
+		double repartido = 0;
+		if (dineroEstado > 0) {
+			repartido = this.dineroEstado / numMenores;
+		}
+		return repartido;
 	}
 
 	public double obtenerSubsidioJubilado(double subsidioTotal) {

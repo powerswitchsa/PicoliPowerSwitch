@@ -6,7 +6,6 @@ import java.util.Stack;
 public class Factoria {
 
 	private Stack<Ser> trabajadores;
-	private int maxTrabajadores = 1000;
 	private double produccionTrabajador = 1000;
 
 	public Factoria() {
@@ -14,9 +13,8 @@ public class Factoria {
 		this.trabajadores = new Stack<Ser>();
 	}
 
-	// la cantidad de trabajadores no pueden ser mayor a su maxTrabajadores
 	public void contratarTrabajador(Ser trabajador) {
-
+		this.trabajadores.add(trabajador);
 	}
 
 	// Se despide una cantidad de trabajadores, y estos seran siempre los ultimos en
@@ -30,9 +28,8 @@ public class Factoria {
 		return null;
 	}
 
-	// Este me devuelve el dinero anual que a producido
 	public double getProduccionAnual() {
-		return 0;
+		return this.produccionTrabajador * this.getTrabajadores().size();
 	}
 
 	public void eliminarTrabajador(int id) {

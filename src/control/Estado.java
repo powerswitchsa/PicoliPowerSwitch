@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import modelo.CapitalEstado;
 import modelo.DatosVista;
+import modelo.Ser;
 import modelo.TipoSeres;
 
 public class Estado {
@@ -15,17 +16,18 @@ public class Estado {
 
 	public Estado() {
 		super();
-		this.poblacion = new Poblacion(5000, 10000, 3000);
 		this.industria = new Industria();
+		this.poblacion = new Poblacion(50, 100, 30);
 		this.capitalEstado = new CapitalEstado(100000);
-		this.datosVista = new DatosVista(poblacion.getSeres().size(), poblacion.getListSer(TipoSeres.menor).size(),
-				poblacion.getListSer(TipoSeres.trabajador).size(), poblacion.getListSer(TipoSeres.jubilado).size(),
+		this.datosVista = new DatosVista(poblacion.getSeres().size(), poblacion.getNumTipoSer(TipoSeres.menor),
+				poblacion.getNumTipoSer(TipoSeres.trabajador), poblacion.getNumTipoSer(TipoSeres.jubilado),
 				poblacion.getNewMenores(), poblacion.getFallecidos(), poblacion.getNewJubilados(),
-				poblacion.getNewTrabajadores(), industria.getFactorias().size(), capitalEstado.getDineroEstado(),
-				poblacion.getListSer(TipoSeres.desempleado).size());
+				industria.getNumTrabajadores(), industria.getFactorias().size(), capitalEstado.getDineroEstado(),
+				poblacion.getNumTipoSer(TipoSeres.desempleado));
 	}
 
 	public void actualizarListas() {
+		this.industria.contratar(this.poblacion.getDesempleados());
 		this.capitalEstado.sumarDineroEstado(industria.getProduccionTotal());
 		this.poblacion.pagarTrabajadores(capitalEstado);
 		this.poblacion.pagarMenores(capitalEstado);
@@ -36,12 +38,13 @@ public class Estado {
 		industria.eliminarTrabajadores(listaIdMuertos);
 		ArrayList<Integer> listaIdJubilados = this.poblacion.actualizarSer();
 		industria.eliminarTrabajadores(listaIdJubilados);
+		this.poblacion.actualizarSer();
 
-		this.datosVista = new DatosVista(poblacion.getSeres().size(), poblacion.getListSer(TipoSeres.menor).size(),
-				poblacion.getListSer(TipoSeres.trabajador).size(), poblacion.getListSer(TipoSeres.jubilado).size(),
+		this.datosVista = new DatosVista(poblacion.getSeres().size(), poblacion.getNumTipoSer(TipoSeres.menor),
+				poblacion.getNumTipoSer(TipoSeres.trabajador), poblacion.getNumTipoSer(TipoSeres.jubilado),
 				poblacion.getNewMenores(), poblacion.getFallecidos(), poblacion.getNewJubilados(),
-				poblacion.getNewTrabajadores(), industria.getFactorias().size(), capitalEstado.getDineroEstado(),
-				poblacion.getListSer(TipoSeres.desempleado).size());
+				industria.getNumTrabajadores(), industria.getFactorias().size(), capitalEstado.getDineroEstado(),
+				poblacion.getNumTipoSer(TipoSeres.desempleado));
 	}
 
 	public ArrayList<String> getDatosVista() {

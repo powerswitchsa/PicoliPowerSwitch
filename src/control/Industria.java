@@ -16,7 +16,7 @@ public class Industria {
 	public Industria() {
 		super();
 		this.factorias = new ArrayList<>();
-		for (int i = 0; i < 15; i++) {
+		for (int i = 0; i < 100; i++) {
 			crearNuevaFactoria();
 		}
 	}

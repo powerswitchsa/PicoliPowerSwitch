@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import org.junit.jupiter.api.Test;
 
 import control.Poblacion;
+import modelo.CapitalEstado;
 import modelo.Ser;
 import modelo.TipoSeres;
 
@@ -25,10 +26,10 @@ class Pruebas {
 
 	@Test
 	void testUno() {
-		Poblacion poblacion = new Poblacion(200, 500, 100);
-		ArrayList<Ser> listaDesempleados = poblacion.getDesempleados();
-
-		assertEquals(500, listaDesempleados.size());
+		CapitalEstado capitalEstado = new CapitalEstado(1000);
+		double cuenta = capitalEstado.getSubsidioMenor(5);
+		assertTrue(cuenta == 200);
+		assertTrue(capitalEstado.getDineroEstado() == -825);
 	}
 
 }

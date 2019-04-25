@@ -18,7 +18,7 @@ public class DatosVista {
 		datos.add(" Nacimientos --> /" + nacimientos);
 		datos.add(" Nuevos Trabajadores --> /" + nuevosTrabajadores);
 		datos.add(" Jubilaciones --> /" + jubilaciones);
-		datos.add(" Dinero Estado --> /" + dineroEstado);
+		datos.add(" Dinero Estado --> /" + String.valueOf(dineroEstado));
 		datos.add(" Factorias --> /" + factorias);
 		datos.add(" Produccion Anual --> / 0");
 		datos.add(" Demanda Anual --> / 0");

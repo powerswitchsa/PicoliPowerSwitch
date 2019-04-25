@@ -13,7 +13,7 @@ public class CapitalEstado {
 		double dineroNecesario = numSeres * sueldo;
 		if (dineroNecesario > this.dineroEstado) {
 			sueldo = this.dineroEstado / numSeres;
-			this.dineroEstado = 0;
+			this.dineroEstado -= dineroNecesario;
 			return sueldo;
 		} else {
 			this.dineroEstado -= dineroNecesario;

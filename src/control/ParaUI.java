@@ -12,19 +12,17 @@ public class ParaUI extends Ventana {
 	public ParaUI() {
 		super();
 		this.estado = new Estado();
-		actualizarDatos(estado.getDatosVista());
-
+		listener();
 		boolean salir = false;
 		do {
-			estado.actualizarListas();
 			actualizarDatos(estado.getDatosVista());
+			estado.actualizarListas();
 			try {
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {
-//				e.printStackTrace();
 			}
 		} while (!salir);
-		listener();
+
 	}
 
 	private void listener() {

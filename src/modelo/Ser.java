@@ -25,7 +25,8 @@ public class Ser {
 		this.id = id;
 		this.nombre = Utilies.getNombreAleatorio();
 		this.edad = edad;
-		this.fechaMuerte = Utilies.obtenerAleatorio((int) this.edad, 90);
+//		this.fechaMuerte = Utilies.obtenerAleatorio((int) this.edad, 90);
+		this.fechaMuerte = 90;
 		this.tipoSer = tipo;
 	}
 
@@ -67,6 +68,9 @@ public class Ser {
 
 	public boolean isMuerto() {
 		return (this.edad >= this.fechaMuerte);
+	}
+	public boolean isTipo(TipoSeres tipoSeres) {
+		return this.tipoSer == tipoSeres;
 	}
 
 	// getters y setters

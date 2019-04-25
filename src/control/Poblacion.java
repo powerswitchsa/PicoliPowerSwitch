@@ -1,7 +1,6 @@
 package control;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Iterator;
 
 import modelo.CapitalEstado;
@@ -22,7 +21,7 @@ public class Poblacion {
 	public Poblacion(int menores, int desempleados, int jubilados) {
 		super();
 		for (int i = 0; i < menores; i++) {
-			seres.add(new Ser(this.id, TipoSeres.menor, Utilies.obtenerAleatorio(17)));
+			seres.add(new Ser(this.id, TipoSeres.menor, Utilies.obtenerAleatorio(0, 17)));
 			this.id++;
 		}
 		for (int i = 0; i < desempleados; i++) {
@@ -30,15 +29,28 @@ public class Poblacion {
 			this.id++;
 		}
 		for (int i = 0; i < jubilados; i++) {
-			seres.add(new Ser(this.id, TipoSeres.jubilado, Utilies.obtenerAleatorio(65, 90)));
+			seres.add(new Ser(this.id, TipoSeres.jubilado, 65));
 			this.id++;
 		}
 	}
 
-	public ArrayList<Ser> getListSer(TipoSeres tipoSer) {
+	public ArrayList<Ser> getListTipoSer(TipoSeres tipoSer) {
 		ArrayList<Ser> lista = new ArrayList<Ser>();
-		for (Ser ser : this.seres) {
-			if (tipoSer == ser.getTipoSer()) {
+		for (Iterator iterator = this.seres.iterator(); iterator.hasNext();) {
+			Ser ser = (Ser) iterator.next();
+			if (ser.getTipoSer() == tipoSer) {
+				lista.add(ser);
+			}
+		}
+		return lista;
+	}
+
+	public ArrayList<Ser> getDesempleados() {
+		ArrayList<Ser> lista = new ArrayList<Ser>();
+		for (Iterator iterator = this.seres.iterator(); iterator.hasNext();) {
+			Ser ser = (Ser) iterator.next();
+			if (ser.getTipoSer() == TipoSeres.desempleado) {
+				ser.setTrabajador();
 				lista.add(ser);
 			}
 		}
@@ -52,21 +64,26 @@ public class Poblacion {
 	}
 
 	public ArrayList<Integer> actualizarSer() {
+		this.newJubilados = 0;
 		ArrayList<Integer> listId = new ArrayList<Integer>();
 		for (Ser ser : this.seres) {
 			if (ser.getEdad() == 18 && ser.getTipoSer() == TipoSeres.menor) {
-				ser.setTipoSer(TipoSeres.desempleado);
+				ser.setDesempleado();
 				this.newTrabajadores++;
 			}
 			if (ser.getEdad() == 65 && ser.getTipoSer() == TipoSeres.desempleado) {
-				ser.setTipoSer(TipoSeres.jubilado);
+				ser.setJubilar();
 				this.newJubilados++;
 			}
 			if (ser.getEdad() == 65 && ser.getTipoSer() == TipoSeres.trabajador) {
-				ser.setTipoSer(TipoSeres.jubilado);
+				ser.setJubilar();
 				listId.add(ser.getId());
 				this.newJubilados++;
 			}
+		}
+		for (int i = 0; i < this.newJubilados; i++) {
+			this.seres.add(new Ser(this.id, TipoSeres.menor, 0));
+			this.id++;
 		}
 		return listId;
 	}
@@ -87,7 +104,7 @@ public class Poblacion {
 	}
 
 	public void pagarMenores(CapitalEstado capitalEstado) {
-		int paga = getListSer(TipoSeres.menor).size();
+		int paga = getNumTipoSer(TipoSeres.menor);
 		for (Ser ser : seres) {
 			if (ser.getTipoSer() == TipoSeres.menor)
 				ser.subsidioMenor(capitalEstado.obtenerSueldo(paga, ser.getTipoSer().getSueldo()));
@@ -97,13 +114,13 @@ public class Poblacion {
 	public void pagarDesempleados(CapitalEstado capitalEstado) {
 		for (Ser ser : seres) {
 			if (ser.getTipoSer() == TipoSeres.desempleado)
-				ser.subsidioDesempleado(capitalEstado.obtenerSueldo(getListSer(TipoSeres.desempleado).size(),
+				ser.subsidioDesempleado(capitalEstado.obtenerSueldo(getListTipoSer(TipoSeres.desempleado).size(),
 						ser.getTipoSer().getSueldo()));
 		}
 	}
 
 	public void pagarTrabajadores(CapitalEstado capitalEstado) {
-		double sueldo = capitalEstado.obtenerSueldo(getListSer(TipoSeres.trabajador).size(),
+		double sueldo = capitalEstado.obtenerSueldo(getListTipoSer(TipoSeres.trabajador).size(),
 				TipoSeres.trabajador.getSueldo());
 		for (Ser ser : seres) {
 			if (ser.getTipoSer() == TipoSeres.trabajador) {
@@ -135,6 +152,16 @@ public class Poblacion {
 			}
 		}
 		return retorno;
+	}
+
+	public int getNumTipoSer(TipoSeres tipoSeres) {
+		int contador = 0;
+		for (Ser ser : seres) {
+			if (ser.getTipoSer() == tipoSeres) {
+				contador++;
+			}
+		}
+		return contador;
 	}
 
 	public void setId(int id) {

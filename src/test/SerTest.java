@@ -47,8 +47,8 @@ class SerTest {
 		jubilado.subsidioJubilado(0);
 		assertEquals(500 - 182.5, jubilado.getAhorros());
 		jubilado.setAhorros(0);
-		jubilado.subsidioJubilado(0);
 		jubilado.setFechaMuerte(75);
+		jubilado.subsidioJubilado(0);
 		assertEquals(74.5, jubilado.getFechaMuerte());
 	}
 

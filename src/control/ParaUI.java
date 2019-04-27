@@ -16,7 +16,7 @@ public class ParaUI extends Ventana {
 		boolean salir = false;
 		do {
 			actualizarDatos(estado.getDatosVista());
-			estado.actualizarListas();
+			estado.pasarAño();
 			try {
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {
@@ -29,7 +29,7 @@ public class ParaUI extends Ventana {
 
 		getBtnPasarAño().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				estado.actualizarListas();
+				estado.pasarAño();
 				actualizarDatos(estado.getDatosVista());
 			}
 		});

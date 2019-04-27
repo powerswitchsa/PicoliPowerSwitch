@@ -111,17 +111,19 @@ public class Poblacion {
 	}
 
 	public void pagarMenores(CapitalEstado capitalEstado) {
+		double subsidio = capitalEstado.obtenerSueldo(getNumTipoSer(TipoSeres.menor), TipoSeres.menor.getSueldo());
 		for (Ser ser : seres) {
 			if (ser.getTipoSer() == TipoSeres.menor)
-				ser.subsidioMenor(capitalEstado.getSubsidioMenor(getNumTipoSer(TipoSeres.menor)));
+				ser.subsidioMenor(subsidio);
 		}
 	}
 
 	public void pagarDesempleados(CapitalEstado capitalEstado) {
+		double ayuda = capitalEstado.obtenerSueldo(getListTipoSer(TipoSeres.desempleado).size(),
+				TipoSeres.desempleado.getSueldo());
 		for (Ser ser : seres) {
 			if (ser.getTipoSer() == TipoSeres.desempleado)
-				ser.subsidioDesempleado(capitalEstado.obtenerSueldo(getListTipoSer(TipoSeres.desempleado).size(),
-						ser.getTipoSer().getSueldo()));
+				ser.subsidioDesempleado(ayuda);
 		}
 	}
 

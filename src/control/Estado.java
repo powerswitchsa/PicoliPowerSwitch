@@ -22,11 +22,11 @@ public class Estado {
 		actualizarDatosVista();
 	}
 
-	public void actualizarListas() {
+	public void pasarAño() {
 		actualizarDatosVista();
 		this.poblacion.resetDatos();
 		this.industria.contratar(this.poblacion.getDesempleados());
-		this.capitalEstado.sumarDineroEstado(industria.getProduccionTotal());
+		this.capitalEstado.setDineroEstado(capitalEstado.getDineroEstado() + industria.getProduccionTotal());;
 //		this.poblacion.pagarTrabajadores(capitalEstado);
 		this.poblacion.pagarMenores(capitalEstado);
 //		this.poblacion.pagarDesempleados(capitalEstado);

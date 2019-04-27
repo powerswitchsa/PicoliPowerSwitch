@@ -31,7 +31,11 @@ public class Ser {
 	}
 
 	public double getNVRestanteJubilado() {
-		return 0;
+		double dineroNecesario = this.tipoSer.getNV() - this.ahorros;
+		dineroNecesario = dineroNecesario > 0 ? dineroNecesario : 0;
+		if (dineroNecesario >= this.tipoSer.getNV() / 2)
+			dineroNecesario = this.tipoSer.getNV() / 2;
+		return dineroNecesario;
 	}
 
 	public void pagarTrabajador(CapitalEstado capitalEstado, double pagaEstado) {
@@ -39,7 +43,8 @@ public class Ser {
 	}
 
 	public void subsidioMenor(double paga) {
-
+		if (paga < this.tipoSer.getNV())
+			reducirEsperanzaVida(this.tipoSer.getNV() - paga);
 	}
 
 	public void subsidioDesempleado(double ayudaEstado) {
@@ -47,7 +52,16 @@ public class Ser {
 	}
 
 	public void subsidioJubilado(double subsudio) {
-
+		if (this.ahorros >= this.tipoSer.getNV()) {
+			this.ahorros -= this.tipoSer.getNV();
+		} else {
+			double dinero = this.tipoSer.getNV() - this.ahorros;
+			this.ahorros = 0;
+			dinero -= subsudio;
+			if (dinero > 0) {
+				reducirEsperanzaVida(dinero);
+			}
+		}
 	}
 
 	public void setDesempleado() {
@@ -69,6 +83,7 @@ public class Ser {
 	public boolean isMuerto() {
 		return (this.edad >= this.fechaMuerte);
 	}
+
 	public boolean isTipo(TipoSeres tipoSeres) {
 		return this.tipoSer == tipoSeres;
 	}

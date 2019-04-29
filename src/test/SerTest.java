@@ -15,7 +15,7 @@ class SerTest {
 		Ser trabajador = new Ser(0, TipoSeres.trabajador, 25);
 		CapitalEstado capitalEstado = new CapitalEstado(0);
 		trabajador.setAhorros(0);
-		trabajador.pagarTrabajador(capitalEstado, 730);
+		trabajador.setPagarTrabajador(capitalEstado, 730);
 		assertEquals((730 - 365) / 2, trabajador.getAhorros());
 		assertEquals((730 - 365) / 2, capitalEstado.getDineroEstado());
 	}
@@ -24,9 +24,9 @@ class SerTest {
 	void testPagarMenor() {
 		Ser menor = new Ser(0, TipoSeres.menor, 5);
 		menor.setFechaMuerte(10);
-		menor.subsidioMenor(365);
+		menor.setSubsidioMenor(365);
 		assertTrue(menor.getFechaMuerte() == 10);
-		menor.subsidioMenor(0);
+		menor.setSubsidioMenor(0);
 		assertTrue(menor.getFechaMuerte() == 9.5);
 	}
 
@@ -34,9 +34,9 @@ class SerTest {
 	void testPagaDesempleado() {
 		Ser desempleado = new Ser(0, TipoSeres.desempleado, 30);
 		desempleado.setAhorros(500);
-		desempleado.subsidioDesempleado(182.5);
+		desempleado.setSubsidioDesempleado(182.5);
 		assertEquals(500 - 182.5, desempleado.getAhorros());
-		desempleado.subsidioDesempleado(0);
+		desempleado.setSubsidioDesempleado(0);
 		assertEquals(500 - (182.5 * 3), desempleado.getAhorros());
 	}
 
@@ -44,11 +44,11 @@ class SerTest {
 	void testSubsidioJubilado() {
 		Ser jubilado = new Ser(0, TipoSeres.jubilado, 70);
 		jubilado.setAhorros(500);
-		jubilado.subsidioJubilado(0);
+		jubilado.setSubsidioJubilado(0);
 		assertEquals(500 - 182.5, jubilado.getAhorros());
 		jubilado.setAhorros(0);
 		jubilado.setFechaMuerte(75);
-		jubilado.subsidioJubilado(0);
+		jubilado.setSubsidioJubilado(0);
 		assertEquals(74.5, jubilado.getFechaMuerte());
 	}
 
@@ -56,9 +56,9 @@ class SerTest {
 	void testReducirEsperanzaVida() {
 		Ser ser = new Ser(1, TipoSeres.trabajador, 30);
 		ser.setFechaMuerte(30);
-		ser.reducirEsperanzaVida(365);
+		ser.setReducirEsperanzaVida(365);
 		assertEquals(29.5, ser.getFechaMuerte(), 0.5);
-		ser.reducirEsperanzaVida(0);
+		ser.setReducirEsperanzaVida(0);
 		assertEquals(30, ser.getFechaMuerte(), 0.5);
 	}
 

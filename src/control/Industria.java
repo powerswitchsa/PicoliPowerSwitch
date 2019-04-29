@@ -1,13 +1,10 @@
 package control;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.Iterator;
-import java.util.Stack;
 
 import modelo.Factoria;
 import modelo.Ser;
-import modelo.TipoSeres;
 
 public class Industria {
 
@@ -16,8 +13,45 @@ public class Industria {
 	public Industria() {
 		super();
 		this.factorias = new ArrayList<>();
-		for (int i = 0; i < 100; i++) {
+		for (int i = 0; i < 1; i++) {
 			crearNuevaFactoria();
+		}
+	}
+
+	public void setEliminarFactoriasVacias() {
+		for (Iterator iterator = factorias.iterator(); iterator.hasNext();) {
+			Factoria factoria = (Factoria) iterator.next();
+			if (factoria.getTrabajadores().isEmpty()) {
+				iterator.remove();
+			}
+		}
+	}
+
+	public void setEliminarTrabajadores(ArrayList<Integer> listaId) {
+		for (Factoria fact : this.factorias) {
+			for (Iterator iterator = fact.getTrabajadores().iterator(); iterator.hasNext();) {
+				Ser ser = (Ser) iterator.next();
+				if (listaId.contains(ser.getId())) {
+					iterator.remove();
+				}
+			}
+		}
+	}
+
+	public void setContratarDesempleados(ArrayList<Ser> desempleados) {
+		boolean salir = false;
+		do {
+			salir = getNumPuestosVacantes() < desempleados.size() ? crearNuevaFactoria() : true;
+		} while (!salir);
+		for (Iterator iterator = desempleados.iterator(); iterator.hasNext();) {
+			Ser ser = (Ser) iterator.next();
+			for (Iterator iterator2 = this.factorias.iterator(); iterator2.hasNext();) {
+				Factoria fact = (Factoria) iterator2.next();
+				if (fact.getPuestoVacantes() <= 1000) {
+					fact.setContratarTrabajador(ser);
+					break;
+				}
+			}
 		}
 	}
 
@@ -29,37 +63,12 @@ public class Industria {
 		return retorno;
 	}
 
-	public void cerrarFactorias(Stack<Ser> listaDesempleados) {
-		for (Factoria factoria : factorias) {
-			if (factoria.getTrabajadores().isEmpty()) {
-				factoria.cerraFactoria(listaDesempleados);
-				factorias.remove(factoria);
-			}
-		}
-	}
-
-	public void eliminarTrabajadores(ArrayList<Integer> listaId) {
+	private int getNumPuestosVacantes() {
+		int vacantes = 0;
 		for (Factoria fact : this.factorias) {
-			for (Iterator iterator = fact.getTrabajadores().iterator(); iterator.hasNext();) {
-				Ser ser = (Ser) iterator.next();
-				if (listaId.contains(ser.getId())) {
-					iterator.remove();
-				}
-			}
+			vacantes += fact.getPuestoVacantes();
 		}
-	}
-
-	public void contratar(ArrayList<Ser> desempleados) {
-		int indice = 0;
-		for (Ser ser : desempleados) {
-			indice = 0;
-			for (Factoria fact : factorias) {
-				if (fact.getTrabajadores().size() <= 1000 && indice != 1) {
-					fact.contratarTrabajador(ser);
-					indice++;
-				}
-			}
-		}
+		return vacantes;
 	}
 
 	public int getNumTrabajadores() {
@@ -70,12 +79,9 @@ public class Industria {
 		return contador;
 	}
 
-	public void despedir(HashSet<Ser> listaDesempleados, int numTrabajadores) {
-
-	}
-
-	private void crearNuevaFactoria() {
+	private boolean crearNuevaFactoria() {
 		this.factorias.add(new Factoria());
+		return false;
 	}
 
 	public ArrayList<Factoria> getFactorias() {

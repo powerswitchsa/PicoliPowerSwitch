@@ -25,8 +25,8 @@ public class Ser {
 		this.id = id;
 		this.nombre = Utilies.getNombreAleatorio();
 		this.edad = edad;
-//		this.fechaMuerte = Utilies.obtenerAleatorio((int) this.edad, 90);
 		this.fechaMuerte = 90;
+		this.fechaMuerte = Utilies.obtenerAleatorio((int) this.edad, 90);
 		this.tipoSer = tipo;
 	}
 
@@ -38,20 +38,33 @@ public class Ser {
 		return dineroNecesario;
 	}
 
-	public void pagarTrabajador(CapitalEstado capitalEstado, double pagaEstado) {
-
+	public void setPagarTrabajador(CapitalEstado capitalEstado, double pagaEstado) {
+		if (pagaEstado < this.tipoSer.getNV()) {
+			setReducirEsperanzaVida(this.tipoSer.getNV() - pagaEstado);
+		} else {
+			double sueldoRestante = pagaEstado - this.tipoSer.getNV();
+			this.ahorros += sueldoRestante / 2;
+			capitalEstado.sumarDineroEstado(sueldoRestante / 2);
+		}
 	}
 
-	public void subsidioMenor(double paga) {
+	public void setSubsidioMenor(double paga) {
 		if (paga < this.tipoSer.getNV())
-			reducirEsperanzaVida(this.tipoSer.getNV() - paga);
+			setReducirEsperanzaVida(this.tipoSer.getNV() - paga);
 	}
 
-	public void subsidioDesempleado(double ayudaEstado) {
-
+	public void setSubsidioDesempleado(double ayudaEstado) {
+		double NVRestante = this.tipoSer.getNV() - ayudaEstado;
+		if (NVRestante < this.ahorros) {
+			this.ahorros -= NVRestante;
+		} else {
+			NVRestante -= this.ahorros;
+			this.ahorros = 0;
+			setReducirEsperanzaVida(NVRestante);
+		}
 	}
 
-	public void subsidioJubilado(double subsudio) {
+	public void setSubsidioJubilado(double subsudio) {
 		if (this.ahorros >= this.tipoSer.getNV()) {
 			this.ahorros -= this.tipoSer.getNV();
 		} else {
@@ -59,7 +72,7 @@ public class Ser {
 			this.ahorros = 0;
 			dinero -= subsudio;
 			if (dinero > 0) {
-				reducirEsperanzaVida(dinero);
+				setReducirEsperanzaVida(dinero);
 			}
 		}
 	}
@@ -76,7 +89,7 @@ public class Ser {
 		this.tipoSer = TipoSeres.jubilado;
 	}
 
-	public void reducirEsperanzaVida(double NVrestante) {
+	public void setReducirEsperanzaVida(double NVrestante) {
 		this.fechaMuerte -= (((NVrestante * 100) / this.tipoSer.getNV()) * 0.5) / 100;
 	}
 

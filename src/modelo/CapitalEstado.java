@@ -24,7 +24,7 @@ public class CapitalEstado {
 	}
 
 	public double obtenerSubsidioJubilado(double subsidioTotal) {
-		return 0; // % que hay que aplicar al sueldo
+		return ((this.dineroEstado * 100) / subsidioTotal) / 100;
 	}
 
 	public double getDineroEstado() {

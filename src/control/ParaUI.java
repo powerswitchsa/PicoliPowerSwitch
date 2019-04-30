@@ -36,13 +36,13 @@ public class ParaUI extends Ventana {
 
 		getBtnAumentarNacimientos().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
+				estado.setAumentarDemanda(20000);
 			}
 		});
 
 		getBtnDisminuirNacimientos().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
+				estado.setDisminuirDemanda(20000);
 			}
 		});
 

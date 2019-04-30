@@ -64,37 +64,42 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <association id="8">    
-    <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="9" name="trabajadores">        
+  <class id="8" language="java" name="modelo.CapitalEstado" project="PicoliPowerSwitch" 
+    file="/PicoliPowerSwitch/src/modelo/CapitalEstado.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="957" y="738"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <association id="9">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="10" name="seres">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="10" minimum="0" maximum="2147483647">        
+      <multiplicity id="11" minimum="0" maximum="2147483647">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="1" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="11">    
+  <association id="12">    
     <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="12" name="industria">        
+      <attribute id="13" name="industria">        
         <position height="0" width="0" x="-304" y="-320"/>      
       </attribute>      
-      <multiplicity id="13" minimum="0" maximum="1">        
+      <multiplicity id="14" minimum="0" maximum="1">        
         <position height="0" width="0" x="-304" y="-320"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="4" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="14">    
-    <end type="SOURCE" refId="6"/>    
-    <end type="TARGET" refId="7"/>  
-  </generalization>  
   <association id="15">    
-    <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="16" name="seres">        
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="16" name="trabajadores">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
       <multiplicity id="17" minimum="0" maximum="2147483647">        
@@ -104,40 +109,52 @@
     <end type="TARGET" refId="1" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <dependency id="18">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="1"/>  
-  </dependency>  
-  <association id="19">    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="20" name="estado">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="21" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="2" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="22">    
+  <association id="18">    
     <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="23" name="factorias">        
+      <attribute id="19" name="factorias">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="24" minimum="0" maximum="2147483647">        
+      <multiplicity id="20" minimum="0" maximum="2147483647">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="3" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="25">    
-    <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="26" name="poblacion">        
+  <association id="21">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="22" name="estado">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="27" minimum="0" maximum="1">        
+      <multiplicity id="23" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="24">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="7"/>  
+  </generalization>  
+  <association id="25">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="26" name="capitalEstado"/>      
+      <multiplicity id="27" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="28">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="1"/>  
+  </dependency>  
+  <association id="29">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="30" name="poblacion">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="31" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    

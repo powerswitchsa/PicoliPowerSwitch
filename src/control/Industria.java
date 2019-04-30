@@ -27,6 +27,10 @@ public class Industria {
 		}
 	}
 
+	public ArrayList<Integer> setDespedirEmpleados(int desempleados) {
+		return null;
+	}
+
 	public void setEliminarTrabajadores(ArrayList<Integer> listaId) {
 		for (Factoria fact : this.factorias) {
 			for (Iterator iterator = fact.getTrabajadores().iterator(); iterator.hasNext();) {

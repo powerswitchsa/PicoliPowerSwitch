@@ -3,7 +3,7 @@ package modelo;
 public enum TipoSeres {
 
 	menor(365, 365, "menor"), desempleado(182.5, 365, "desempleado"), trabajador(730, 365, "trabajador"),
-	jubilado(182.5, 182.5, "jubilado");
+	jubilado(91.25, 182.5, "jubilado");
 
 	private double sueldo;
 	private double NV;

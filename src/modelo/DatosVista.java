@@ -8,8 +8,9 @@ public class DatosVista {
 
 	public DatosVista(int habitantes, int menores, int trabajadores, int jubilados, int nacimientos, int fallecimientos,
 			int jubilaciones, int nuevosTrabajadores, int factorias, double dineroEstado, int desempleados,
-			double produccionAnual) {
+			double produccionAnual, int años, double demanda) {
 		super();
+		datos.add(" Años --> /" + años);
 		datos.add(" Habitantes --> /" + habitantes);
 		datos.add(" Menores --> /" + menores);
 		datos.add(" Trabajadores --> /" + trabajadores);
@@ -19,10 +20,10 @@ public class DatosVista {
 		datos.add(" Nacimientos --> /" + nacimientos);
 		datos.add(" Nuevos Trabajadores --> /" + nuevosTrabajadores);
 		datos.add(" Jubilaciones --> /" + jubilaciones);
-		datos.add(" Dinero Estado --> /" + String.valueOf(dineroEstado));
+		datos.add(" Dinero Estado --> /" + (int) dineroEstado);
 		datos.add(" Factorias --> /" + factorias);
-		datos.add(" Produccion Anual --> /" + produccionAnual);
-		datos.add(" Demanda Anual --> / 0");
+		datos.add(" Produccion Anual --> /" + (int) produccionAnual);
+		datos.add(" Demanda Anual --> / " + (int) demanda);
 		datos.add(" Crecimiento Anual --> / 0");
 	}
 

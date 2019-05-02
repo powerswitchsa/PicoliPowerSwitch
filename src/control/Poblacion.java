@@ -42,7 +42,7 @@ public class Poblacion {
 	}
 
 	public void setDespedir(ArrayList<Integer> listaId) {
-		if (!listaId.isEmpty()) {
+		if (listaId != null) {
 			for (Ser ser : this.seres) {
 				if (listaId.contains(ser.getId())) {
 					ser.setDesempleado();

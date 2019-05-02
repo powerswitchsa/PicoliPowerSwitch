@@ -26,36 +26,32 @@ public class Estado {
 	}
 
 	public void pasarAño() {
-		actualizarDatosVista();
+//		actualizarDatosVista();
 		this.poblacion.setResetDatos();
-		if (this.demanda > this.industria.getProduccionTotal()) {
-			double cuenta = this.demanda - (this.industria.getProduccionTotal()
-					+ (poblacion.getNumTipoSer(TipoSeres.menor) * 1000));
-			System.out.println(cuenta);
-			if (cuenta > 0) {
-				int nacimientos = (int) cuenta / 1000;
-				this.poblacion.setNacimientos(nacimientos);
-			}
-		} else {
-//			double cuenta = this.demanda - this.industria.getProduccionTotal();
-//			int despidos = (int) cuenta / 1000;
-//			ArrayList<Integer> listaDespidos = this.industria.setDespedirEmpleados((int) despidos);
-//			this.poblacion.setDespedir(listaDespidos);
-		}
 		this.industria.setEliminarFactoriasVacias();
-		this.industria.setContratarDesempleados(this.poblacion.getDesempleados());
+		double cuenta = this.demanda
+				- (this.industria.getProduccionTotal() + (poblacion.getNumTipoSer(TipoSeres.menor) * 1000));
+		if (cuenta > 0) {
+			int nacimientos = (int) cuenta / 1000;
+			this.poblacion.setNacimientos(nacimientos);
+			this.industria.setContratarDesempleados(this.poblacion.getDesempleados());
+		} else {
+			int despidos = Math.abs((int) cuenta / 1000);
+			ArrayList<Integer> listaDespidos = this.industria.setDespedirEmpleados((int) despidos);
+			this.poblacion.setDespedir(listaDespidos);
+
+		}
 		this.capitalEstado.setDineroEstado(capitalEstado.getDineroEstado() + industria.getProduccionTotal());
 		this.poblacion.setPagarTrabajadores(capitalEstado);
 		this.poblacion.setPagarMenores(capitalEstado);
 		this.poblacion.setPagarDesempleados(capitalEstado);
 		this.poblacion.setPagarJubilados(capitalEstado);
 		this.poblacion.setEnvejecerPoblacion();
-		ArrayList<Integer> listaIdMuertos = this.poblacion.setEliminarMuertos(capitalEstado);
-		this.industria.setEliminarTrabajadores(listaIdMuertos);
-		ArrayList<Integer> listaIdJubilados = this.poblacion.setActualizarSer();
-		industria.setEliminarTrabajadores(listaIdJubilados);
+		this.industria.setEliminarTrabajadores(this.poblacion.setEliminarMuertos(capitalEstado));
+		this.industria.setEliminarTrabajadores(this.poblacion.setActualizarSer());
 		this.poblacion.setActualizarSer();
 		this.años++;
+		actualizarDatosVista();
 	}
 
 	private void actualizarDatosVista() {

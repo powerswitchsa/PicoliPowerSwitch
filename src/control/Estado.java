@@ -5,6 +5,9 @@ import java.util.ArrayList;
 import modelo.CapitalEstado;
 import modelo.DatosVista;
 import modelo.TipoSeres;
+import modelo.vista.DatosEstadoGlobal;
+import modelo.vista.DatosEstadoLocal;
+import modelo.vista.DatosPoblacion;
 
 public class Estado {
 
@@ -15,22 +18,17 @@ public class Estado {
 
 	private double demanda = 100000;
 
-	private int años = 0;
-
 	public Estado() {
 		super();
 		this.industria = new Industria();
 		this.poblacion = new Poblacion(50, 100, 30);
 		this.capitalEstado = new CapitalEstado(100000);
-		actualizarDatosVista();
 	}
 
 	public void pasarAño() {
-//		actualizarDatosVista();
 		this.poblacion.setResetDatos();
-		this.industria.setEliminarFactoriasVacias();
 		double cuenta = this.demanda
-				- (this.industria.getProduccionTotal() + (poblacion.getNumTipoSer(TipoSeres.menor) * 1000));
+				- (this.industria.getProduccionTotal() + (this.poblacion.getNumTipoSer(TipoSeres.menor) * 1000));
 		if (cuenta > 0) {
 			int nacimientos = (int) cuenta / 1000;
 			this.poblacion.setNacimientos(nacimientos);
@@ -49,18 +47,24 @@ public class Estado {
 		this.poblacion.setEnvejecerPoblacion();
 		this.industria.setEliminarTrabajadores(this.poblacion.setEliminarMuertos(capitalEstado));
 		this.industria.setEliminarTrabajadores(this.poblacion.setActualizarSer());
+		this.industria.setEliminarFactoriasVacias();
 		this.poblacion.setActualizarSer();
-		this.años++;
-		actualizarDatosVista();
 	}
 
-	private void actualizarDatosVista() {
-		this.datosVista = new DatosVista(poblacion.getSeres().size(), poblacion.getNumTipoSer(TipoSeres.menor),
-				poblacion.getNumTipoSer(TipoSeres.trabajador), poblacion.getNumTipoSer(TipoSeres.jubilado),
-				poblacion.getNewMenores(), poblacion.getFallecidos(), poblacion.getNewJubilados(),
-				poblacion.getNewTrabajadores(), industria.getFactorias().size(), capitalEstado.getDineroEstado(),
-				poblacion.getNumTipoSer(TipoSeres.desempleado), industria.getProduccionTotal(), this.años,
-				this.demanda);
+	public DatosPoblacion getDatosPoblacion() {
+		return new DatosPoblacion(this.poblacion.getSeres().size(), this.poblacion.getNumTipoSer(TipoSeres.menor),
+				this.poblacion.getNumTipoSer(TipoSeres.trabajador), this.poblacion.getNumTipoSer(TipoSeres.jubilado),
+				this.poblacion.getNewMenores(), this.poblacion.getFallecidos(), this.poblacion.getNewJubilados(),
+				this.poblacion.getNewTrabajadores());
+	}
+
+	public DatosEstadoGlobal getDatosEstadoGlobales() {
+		return new DatosEstadoGlobal(this.demanda, this.industria.getProduccionTotal(),
+				this.capitalEstado.getDineroEstado(), 0);
+	}
+
+	public DatosEstadoLocal getDatosEstadoLocal() {
+		return new DatosEstadoLocal(0, 0, 0, 0, this.industria.getFactorias().size(), 0);
 	}
 
 	public ArrayList<String> getDatosVista() {

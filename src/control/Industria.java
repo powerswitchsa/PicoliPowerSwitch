@@ -21,14 +21,28 @@ public class Industria {
 	public void setEliminarFactoriasVacias() {
 		for (Iterator iterator = factorias.iterator(); iterator.hasNext();) {
 			Factoria factoria = (Factoria) iterator.next();
-			if (factoria.getTrabajadores().isEmpty()) {
+			if (factoria.getTrabajadores().isEmpty())
 				iterator.remove();
-			}
 		}
 	}
 
 	public ArrayList<Integer> setDespedirEmpleados(int desempleados) {
-		return null;
+		ArrayList<Integer> listaId = new ArrayList<Integer>();
+		int contador = 0;
+		for (Iterator iterator = this.factorias.iterator(); iterator.hasNext();) {
+			Factoria fact = (Factoria) iterator.next();
+			if (contador == desempleados)
+				break;
+			for (Iterator iterator2 = fact.getTrabajadores().iterator(); iterator2.hasNext();) {
+				Ser ser = (Ser) iterator2.next();
+				listaId.add(ser.getId());
+				iterator2.remove();
+				contador++;
+				if (contador == desempleados)
+					break;
+			}
+		}
+		return listaId;
 	}
 
 	public void setEliminarTrabajadores(ArrayList<Integer> listaId) {
@@ -51,7 +65,7 @@ public class Industria {
 			Ser ser = (Ser) iterator.next();
 			for (Iterator iterator2 = this.factorias.iterator(); iterator2.hasNext();) {
 				Factoria fact = (Factoria) iterator2.next();
-				if (fact.getPuestoVacantes() <= 1000) {
+				if (fact.getPuestoVacantes() > 0) {
 					fact.setContratarTrabajador(ser);
 					break;
 				}

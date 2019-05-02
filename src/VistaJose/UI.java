@@ -40,11 +40,17 @@ public class UI extends JFrame {
 	private JTextField textField_17;
 
 	protected Comunicador comunicadorPoblacion, comunicadorEstadoLocal, comunicadorEstadoGlobal;
+
 	private JPanel pnlPoblacion;
 	private JPanel pnlEstadoLocal;
 	private JPanel pnlEstadoGlobal;
 
+	private JButton btnIncrementar;
+	private JButton btnAño;
+	private JButton btnDecrementar;
+
 	public UI() {
+		setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1340, 845);
 		contentPane = new JPanel();
@@ -156,24 +162,24 @@ public class UI extends JFrame {
 		pnlBotonera.add(panel, BorderLayout.CENTER);
 		panel.setLayout(new GridLayout(0, 1, 0, 0));
 
-		JButton btnNewButton = new JButton("Incrementa Porcentaje Produccion");
-		panel.add(btnNewButton);
-		btnNewButton.setActionCommand("");
-		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		btnNewButton.setBackground(Color.GREEN);
-		btnNewButton.setBorder(new LineBorder(new Color(0, 0, 0), 7, true));
+		btnIncrementar = new JButton("Incrementa Porcentaje Produccion");
+		panel.add(btnIncrementar);
+		btnIncrementar.setActionCommand("");
+		btnIncrementar.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		btnIncrementar.setBackground(Color.GREEN);
+		btnIncrementar.setBorder(new LineBorder(new Color(0, 0, 0), 7, true));
 
-		JButton btnNewButton_2 = new JButton("Pasar un periodo");
-		panel.add(btnNewButton_2);
-		btnNewButton_2.setFont(new Font("Tahoma", Font.PLAIN, 26));
-		btnNewButton_2.setBorder(new LineBorder(new Color(0, 0, 0), 7, true));
-		btnNewButton_2.setAlignmentX(Component.CENTER_ALIGNMENT);
+		btnAño = new JButton("Pasar un periodo");
+		panel.add(btnAño);
+		btnAño.setFont(new Font("Tahoma", Font.PLAIN, 26));
+		btnAño.setBorder(new LineBorder(new Color(0, 0, 0), 7, true));
+		btnAño.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-		JButton btnNewButton_1 = new JButton("Decrementa porcentaje produccion");
-		panel.add(btnNewButton_1);
-		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		btnNewButton_1.setBackground(Color.RED);
-		btnNewButton_1.setBorder(new LineBorder(new Color(0, 0, 0), 7, true));
+		btnDecrementar = new JButton("Decrementa porcentaje produccion");
+		panel.add(btnDecrementar);
+		btnDecrementar.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		btnDecrementar.setBackground(Color.RED);
+		btnDecrementar.setBorder(new LineBorder(new Color(0, 0, 0), 7, true));
 
 		pnlEstadoLocal = new JPanel();
 		contentPane.add(pnlEstadoLocal, "cell 0 1,grow");
@@ -301,6 +307,18 @@ public class UI extends JFrame {
 			}
 		}
 		return retorno;
+	}
+
+	public JButton getBtnIncrementar() {
+		return btnIncrementar;
+	}
+
+	public JButton getBtnAño() {
+		return btnAño;
+	}
+
+	public JButton getBtnDecrementar() {
+		return btnDecrementar;
 	}
 
 }

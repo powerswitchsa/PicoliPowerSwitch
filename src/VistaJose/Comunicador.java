@@ -7,6 +7,7 @@ import javax.swing.JTextField;
 import modelo.vista.Datos;
 
 public class Comunicador {
+	
 	ArrayList<JTextField> jTextFields = new ArrayList<>();
 
 	public boolean addControl(JTextField nuevo) {

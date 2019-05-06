@@ -34,7 +34,7 @@ public class Estado {
 			this.poblacion.setNacimientos(nacimientos);
 			this.industria.setContratarDesempleados(this.poblacion.getDesempleados());
 		} else {
-			cuenta-=((this.poblacion.getNumTipoSer(TipoSeres.menor))*1000);
+			cuenta += ((this.poblacion.getNumTipoSer(TipoSeres.menor)) * 1000);
 			int despidos = Math.abs((int) cuenta / 1000);
 			ArrayList<Integer> listaDespidos = this.industria.setDespedirEmpleados((int) despidos);
 			this.poblacion.setDespedir(listaDespidos);
@@ -61,7 +61,13 @@ public class Estado {
 
 	public DatosEstadoGlobal getDatosEstadoGlobales() {
 		return new DatosEstadoGlobal(this.demanda, this.industria.getProduccionTotal(),
-				(int) this.capitalEstado.getDineroEstado(), 0);
+				(int) this.capitalEstado.getDineroEstado(), this.getCalcularCrecimientoAnual());
+	}
+
+	private double getCalcularCrecimientoAnual() {
+		double porcentaje;
+		porcentaje = ((this.industria.getProduccionTotal() * 100) / this.demanda) - 100;
+		return porcentaje;
 	}
 
 	public DatosEstadoLocal getDatosEstadoLocal() {

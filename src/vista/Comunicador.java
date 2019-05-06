@@ -1,4 +1,4 @@
-package VistaJose;
+package vista;
 
 import java.util.ArrayList;
 

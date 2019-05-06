@@ -3,12 +3,12 @@ package control;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import VistaJose.Comunicador;
-import VistaJose.UI;
 import modelo.vista.Datos;
 import modelo.vista.DatosEstadoGlobal;
 import modelo.vista.DatosEstadoLocal;
 import modelo.vista.DatosPoblacion;
+import vista.Comunicador;
+import vista.UI;
 
 public class ParaUI extends UI {
 

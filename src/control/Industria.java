@@ -49,7 +49,7 @@ public class Industria {
 				continue;
 			if (this.factorias.get(i).getTrabajadores().size() > numDesempleados) {
 				listaId.addAll(this.factorias.get(i).setDespedirTrabajadores(numDesempleados));
-				if (this.factorias.get(i).getTrabajadores().isEmpty())
+				if (this.factorias.get(i).getTrabajadores().size() == 0)
 					this.factorias.remove(this.factorias.get(i));
 			} else {
 				int cuenta = numDesempleados - this.factorias.get(i).getTrabajadores().size();

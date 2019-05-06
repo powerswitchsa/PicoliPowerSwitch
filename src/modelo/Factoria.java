@@ -33,7 +33,9 @@ public class Factoria {
 		int contador = 0;
 		ArrayList<Integer> listaId = new ArrayList<Integer>();
 		do {
-			listaId.add(this.trabajadores.pop().getId());
+			if (!this.trabajadores.isEmpty()) {
+				listaId.add(this.trabajadores.pop().getId());
+			}
 			contador++;
 		} while (contador < numDespedidos);
 		return listaId;

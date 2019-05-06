@@ -29,7 +29,7 @@ public class Prueba extends JFrame {
 			}
 		});
 	}
-
+//	fabrica uno : 500 / 1000
 	public Prueba() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1033, 780);

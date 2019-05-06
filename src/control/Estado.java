@@ -1,9 +1,6 @@
 package control;
 
-import java.util.ArrayList;
-
 import modelo.CapitalEstado;
-import modelo.DatosVista;
 import modelo.TipoSeres;
 import modelo.vista.DatosEstadoGlobal;
 import modelo.vista.DatosEstadoLocal;
@@ -13,7 +10,6 @@ public class Estado {
 
 	private Poblacion poblacion;
 	private Industria industria;
-	private DatosVista datosVista;
 	private CapitalEstado capitalEstado;
 
 	private double demanda = 100000;
@@ -34,7 +30,7 @@ public class Estado {
 			this.poblacion.setNacimientos(nacimientos);
 			this.industria.setContratarDesempleados(this.poblacion.getDesempleados());
 		} else {
-			int despidos = Math.abs((int) cuenta / 1000);
+			int despidos = (int) (this.industria.getProduccionTotal() - demanda) / 1000;
 			this.poblacion.setDespedir(this.industria.setDespedirEmpleados((int) despidos));
 		}
 		this.capitalEstado.setDineroEstado(capitalEstado.getDineroEstado() + industria.getProduccionTotal());
@@ -51,9 +47,9 @@ public class Estado {
 
 	public DatosPoblacion getDatosPoblacion() {
 		return new DatosPoblacion(this.poblacion.getSeres().size(), this.poblacion.getNumTipoSer(TipoSeres.menor),
-				this.poblacion.getNumTipoSer(TipoSeres.trabajador), this.poblacion.getNumTipoSer(TipoSeres.jubilado),
-				this.poblacion.getNewMenores(), this.poblacion.getFallecidos(), this.poblacion.getNewJubilados(),
-				this.poblacion.getNewTrabajadores());
+				this.poblacion.getNumTipoSer(TipoSeres.trabajador), this.poblacion.getNumTipoSer(TipoSeres.desempleado),
+				this.poblacion.getNumTipoSer(TipoSeres.jubilado), this.poblacion.getNewMenores(),
+				this.poblacion.getFallecidos(), this.poblacion.getNewJubilados(), this.poblacion.getNewTrabajadores());
 	}
 
 	public DatosEstadoGlobal getDatosEstadoGlobales() {
@@ -63,10 +59,6 @@ public class Estado {
 
 	public DatosEstadoLocal getDatosEstadoLocal() {
 		return new DatosEstadoLocal(0, 0, 0, 0, this.industria.getFactorias().size(), 0);
-	}
-
-	public ArrayList<String> getDatosVista() {
-		return datosVista.getDatos();
 	}
 
 	public void setAumentarDemanda(double demanda) {

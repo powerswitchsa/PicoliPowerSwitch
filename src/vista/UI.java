@@ -82,7 +82,7 @@ public class UI extends JFrame {
 		textField_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		pnlPoblacion.add(textField_1, "cell 3 5");
 		textField_1.setColumns(10);
-		
+
 		JLabel lblDesempleados = new JLabel("Desempleados");
 		lblDesempleados.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		pnlPoblacion.add(lblDesempleados, "cell 1 7,alignx trailing");
@@ -247,17 +247,17 @@ public class UI extends JFrame {
 
 		JLabel label_1 = new JLabel(" ");
 		pnlEstadoGlobal.add(label_1, "cell 1 17");
-		
-		
+
 		comunicadorPoblacion = crearComunicador(pnlPoblacion);
 		comunicadorEstadoLocal = crearComunicador(pnlEstadoLocal);
 		comunicadorEstadoGlobal = crearComunicador(pnlEstadoGlobal);
 
-		getContentPane().setBackground(Color.LIGHT_GRAY);
-		pnlPoblacion.setBackground(Color.LIGHT_GRAY);
-		pnlEstadoLocal.setBackground(Color.LIGHT_GRAY);
-		pnlEstadoGlobal.setBackground(Color.LIGHT_GRAY);
-		pnlBotonera.setBackground(Color.LIGHT_GRAY);
+		Color panelColor = new Color(250, 223, 184);
+		getContentPane().setBackground(panelColor);
+		pnlPoblacion.setBackground(panelColor);
+		pnlEstadoLocal.setBackground(panelColor);
+		pnlEstadoGlobal.setBackground(panelColor);
+		pnlBotonera.setBackground(panelColor);
 
 		textField.setHorizontalAlignment(SwingConstants.CENTER);
 		textField_0.setHorizontalAlignment(SwingConstants.CENTER);

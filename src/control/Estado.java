@@ -35,9 +35,7 @@ public class Estado {
 			this.industria.setContratarDesempleados(this.poblacion.getDesempleados());
 		} else {
 			int despidos = Math.abs((int) cuenta / 1000);
-			ArrayList<Integer> listaDespidos = this.industria.setDespedirEmpleados((int) despidos);
-			this.poblacion.setDespedir(listaDespidos);
-
+			this.poblacion.setDespedir(this.industria.setDespedirEmpleados((int) despidos));
 		}
 		this.capitalEstado.setDineroEstado(capitalEstado.getDineroEstado() + industria.getProduccionTotal());
 		this.poblacion.setPagarTrabajadores(capitalEstado);

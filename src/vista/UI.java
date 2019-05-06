@@ -293,6 +293,8 @@ public class UI extends JFrame {
 
 		JLabel label_1 = new JLabel(" ");
 		pnlEstadoGlobal.add(label_1, "cell 1 17");
+		
+		
 		comunicadorPoblacion = crearComunicador(pnlPoblacion);
 		comunicadorEstadoLocal = crearComunicador(pnlEstadoLocal);
 		comunicadorEstadoGlobal = crearComunicador(pnlEstadoGlobal);

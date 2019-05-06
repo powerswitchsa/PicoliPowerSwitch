@@ -1,5 +1,6 @@
 package modelo;
 
+import java.util.ArrayList;
 import java.util.Stack;
 
 public class Factoria {
@@ -26,6 +27,16 @@ public class Factoria {
 				trabajadores.remove(trabajador);
 			}
 		}
+	}
+
+	public ArrayList<Integer> setDespedirTrabajadores(int numDespedidos) {
+		int contador = 0;
+		ArrayList<Integer> listaId = new ArrayList<Integer>();
+		do {
+			listaId.add(this.trabajadores.pop().getId());
+			contador++;
+		} while (contador < numDespedidos);
+		return listaId;
 	}
 
 	public int getPuestoVacantes() {

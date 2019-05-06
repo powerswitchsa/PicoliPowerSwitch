@@ -51,12 +51,13 @@ public class Poblacion {
 		}
 	}
 
-	public void setNacimientos(int numNacimientos) {
+	public boolean setNacimientos(int numNacimientos) {
 		for (int i = 0; i < numNacimientos; i++) {
 			this.seres.add(new Ser(this.id, TipoSeres.menor, 0));
 			this.id++;
 			this.newMenores++;
 		}
+		return false;
 	}
 
 	public ArrayList<Ser> getListTipoSer(TipoSeres tipoSer) {

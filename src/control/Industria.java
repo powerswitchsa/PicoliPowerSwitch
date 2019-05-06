@@ -28,18 +28,33 @@ public class Industria {
 
 	public ArrayList<Integer> setDespedirEmpleados(int desempleados) {
 		ArrayList<Integer> listaId = new ArrayList<Integer>();
-		int contador = 0;
-		for (Iterator iterator = this.factorias.iterator(); iterator.hasNext();) {
-			Factoria fact = (Factoria) iterator.next();
-			if (contador == desempleados)
-				break;
-			for (Iterator iterator2 = fact.getTrabajadores().iterator(); iterator2.hasNext();) {
-				Ser ser = (Ser) iterator2.next();
-				listaId.add(ser.getId());
-				iterator2.remove();
-				contador++;
-				if (contador == desempleados)
-					break;
+//		int contador = 0;
+//		for (Iterator iterator = this.factorias.iterator(); iterator.hasNext();) {
+//			Factoria fact = (Factoria) iterator.next();
+//			if (contador == desempleados)
+//				break;
+//			for (Iterator iterator2 = fact.getTrabajadores().iterator(); iterator2.hasNext();) {
+//				Ser ser = (Ser) iterator2.next();
+//				listaId.add(ser.getId());
+//				iterator2.remove();
+//				contador++;
+//				if (contador == desempleados)
+//					break;
+//			}
+//		}
+
+		int numDesempleados = desempleados;
+		for (int i = this.factorias.size() - 1; i >= 0; i--) {
+			if (numDesempleados == 0)
+				continue;
+			if (this.factorias.get(i).getTrabajadores().size() > numDesempleados) {
+				listaId.addAll(this.factorias.get(i).setDespedirTrabajadores(numDesempleados));
+				if (this.factorias.get(i).getTrabajadores().isEmpty())
+					this.factorias.remove(this.factorias.get(i));
+			} else {
+				int cuenta = numDesempleados - this.factorias.get(i).getTrabajadores().size();
+				listaId.addAll(this.factorias.get(i).setDespedirTrabajadores(cuenta));
+				numDesempleados = cuenta;
 			}
 		}
 		return listaId;
@@ -56,7 +71,7 @@ public class Industria {
 		}
 	}
 
-	public void setContratarDesempleados(ArrayList<Ser> desempleados) {
+	public boolean setContratarDesempleados(ArrayList<Ser> desempleados) {
 		boolean salir = false;
 		do {
 			salir = getNumPuestosVacantes() < desempleados.size() ? crearNuevaFactoria() : true;
@@ -71,6 +86,7 @@ public class Industria {
 				}
 			}
 		}
+		return false;
 	}
 
 	public double getProduccionTotal() {

@@ -32,6 +32,7 @@ public class Estado {
 		} else {
 			int despidos = (int) (this.industria.getProduccionTotal() - demanda) / 1000;
 			this.poblacion.setDespedir(this.industria.setDespedirEmpleados((int) despidos));
+
 		}
 		this.capitalEstado.setDineroEstado(capitalEstado.getDineroEstado() + industria.getProduccionTotal());
 		this.poblacion.setPagarTrabajadores(capitalEstado);
@@ -54,7 +55,13 @@ public class Estado {
 
 	public DatosEstadoGlobal getDatosEstadoGlobales() {
 		return new DatosEstadoGlobal(this.demanda, this.industria.getProduccionTotal(),
-				(int) this.capitalEstado.getDineroEstado(), 0);
+				(int) this.capitalEstado.getDineroEstado(), this.getCalcularCrecimientoAnual());
+	}
+
+	private double getCalcularCrecimientoAnual() {
+		double porcentaje;
+		porcentaje = ((this.industria.getProduccionTotal() * 100) / this.demanda) - 100;
+		return porcentaje;
 	}
 
 	public DatosEstadoLocal getDatosEstadoLocal() {

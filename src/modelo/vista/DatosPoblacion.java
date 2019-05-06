@@ -4,12 +4,13 @@ import java.util.ArrayList;
 
 public class DatosPoblacion extends Datos{
 	
-	public DatosPoblacion(long habitantes, long menores, long trabajadores, long jubilados, long nacimientos, long fallecimientos,
+	public DatosPoblacion(long habitantes, long menores, long trabajadores,long desempleados, long jubilados, long nacimientos, long fallecimientos,
 			long jubilaciones, long nuevosTrabajadores) {
 		super();
 		ArrayList<Long> datos = getDatos();
 		datos.add(habitantes);
 		datos.add(menores);
+		datos.add(desempleados);
 		datos.add(trabajadores);
 		datos.add(jubilados);
 		datos.add(nacimientos);

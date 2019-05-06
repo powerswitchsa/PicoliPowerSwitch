@@ -21,6 +21,7 @@ public class UI extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
+	private JTextField textField_0;
 	private JTextField textField_1;
 	private JTextField textField_2;
 	private JTextField textField_3;
@@ -28,12 +29,6 @@ public class UI extends JFrame {
 	private JTextField textField_5;
 	private JTextField textField_6;
 	private JTextField textField_7;
-	private JTextField textField_8;
-	private JTextField textField_9;
-	private JTextField textField_10;
-	private JTextField textField_11;
-	private JTextField textField_12;
-	private JTextField textField_13;
 	private JTextField textField_14;
 	private JTextField textField_15;
 	private JTextField textField_16;
@@ -87,23 +82,32 @@ public class UI extends JFrame {
 		textField_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		pnlPoblacion.add(textField_1, "cell 3 5");
 		textField_1.setColumns(10);
+		
+		JLabel lblDesempleados = new JLabel("Desempleados");
+		lblDesempleados.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		pnlPoblacion.add(lblDesempleados, "cell 1 7,alignx trailing");
 
-		JLabel lblTrabjadores = new JLabel("Trabjadores");
+		textField_0 = new JTextField();
+		textField_0.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		pnlPoblacion.add(textField_0, "cell 3 7");
+		textField_0.setColumns(10);
+
+		JLabel lblTrabjadores = new JLabel("Trabajadores");
 		lblTrabjadores.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		pnlPoblacion.add(lblTrabjadores, "cell 1 7,alignx trailing");
+		pnlPoblacion.add(lblTrabjadores, "cell 1 9,alignx trailing");
 
 		textField_2 = new JTextField();
 		textField_2.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		pnlPoblacion.add(textField_2, "cell 3 7");
+		pnlPoblacion.add(textField_2, "cell 3 9");
 		textField_2.setColumns(10);
 
 		JLabel lblJubilados = new JLabel("Jubilados");
 		lblJubilados.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		pnlPoblacion.add(lblJubilados, "cell 1 9,alignx trailing");
+		pnlPoblacion.add(lblJubilados, "cell 1 11,alignx trailing");
 
 		textField_3 = new JTextField();
 		textField_3.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		pnlPoblacion.add(textField_3, "cell 3 9");
+		pnlPoblacion.add(textField_3, "cell 3 11");
 		textField_3.setColumns(10);
 
 		JLabel lblRelativos = new JLabel("Relativos");
@@ -183,61 +187,11 @@ public class UI extends JFrame {
 
 		pnlEstadoLocal = new JPanel();
 		contentPane.add(pnlEstadoLocal, "cell 0 1,grow");
-		pnlEstadoLocal.setLayout(new MigLayout("", "[][][][][][]", "[][][][][][][][][][][][]"));
+		pnlEstadoLocal.setLayout(new MigLayout("", "[grow][][][][][grow]", "[][][][][][][][][][][][]"));
 
 		JLabel lblEstadoLocal = new JLabel("ESTADO LOCAL");
 		lblEstadoLocal.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		pnlEstadoLocal.add(lblEstadoLocal, "cell 0 0");
-
-		JLabel lblFabricas = new JLabel("Fabricas");
-		lblFabricas.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		pnlEstadoLocal.add(lblFabricas, "cell 0 2");
-
-		JLabel lblOcupacion = new JLabel("% ocupacion");
-		lblOcupacion.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		pnlEstadoLocal.add(lblOcupacion, "cell 5 2");
-
-		JLabel lblPequeas = new JLabel("pequeñas");
-		lblPequeas.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		pnlEstadoLocal.add(lblPequeas, "cell 1 4,alignx trailing");
-
-		textField_8 = new JTextField();
-		textField_8.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		pnlEstadoLocal.add(textField_8, "flowx,cell 3 4");
-		textField_8.setColumns(10);
-
-		textField_11 = new JTextField();
-		textField_11.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		pnlEstadoLocal.add(textField_11, "cell 5 4");
-		textField_11.setColumns(10);
-
-		JLabel lblMedianas = new JLabel("medianas");
-		lblMedianas.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		pnlEstadoLocal.add(lblMedianas, "cell 1 6,alignx trailing");
-
-		textField_9 = new JTextField();
-		textField_9.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		pnlEstadoLocal.add(textField_9, "cell 3 6");
-		textField_9.setColumns(10);
-
-		textField_12 = new JTextField();
-		textField_12.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		pnlEstadoLocal.add(textField_12, "cell 5 6");
-		textField_12.setColumns(10);
-
-		JLabel lblGrandes = new JLabel("grandes");
-		lblGrandes.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		pnlEstadoLocal.add(lblGrandes, "cell 1 8,alignx trailing");
-
-		textField_10 = new JTextField();
-		textField_10.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		pnlEstadoLocal.add(textField_10, "cell 3 8");
-		textField_10.setColumns(10);
-
-		textField_13 = new JTextField();
-		textField_13.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		pnlEstadoLocal.add(textField_13, "cell 5 8");
-		textField_13.setColumns(10);
 
 		pnlEstadoGlobal = new JPanel();
 		contentPane.add(pnlEstadoGlobal, "cell 1 1,grow");
@@ -306,6 +260,7 @@ public class UI extends JFrame {
 		pnlBotonera.setBackground(Color.LIGHT_GRAY);
 
 		textField.setHorizontalAlignment(SwingConstants.CENTER);
+		textField_0.setHorizontalAlignment(SwingConstants.CENTER);
 		textField_1.setHorizontalAlignment(SwingConstants.CENTER);
 		textField_2.setHorizontalAlignment(SwingConstants.CENTER);
 		textField_3.setHorizontalAlignment(SwingConstants.CENTER);
@@ -313,12 +268,6 @@ public class UI extends JFrame {
 		textField_5.setHorizontalAlignment(SwingConstants.CENTER);
 		textField_6.setHorizontalAlignment(SwingConstants.CENTER);
 		textField_7.setHorizontalAlignment(SwingConstants.CENTER);
-		textField_8.setHorizontalAlignment(SwingConstants.CENTER);
-		textField_9.setHorizontalAlignment(SwingConstants.CENTER);
-		textField_10.setHorizontalAlignment(SwingConstants.CENTER);
-		textField_11.setHorizontalAlignment(SwingConstants.CENTER);
-		textField_12.setHorizontalAlignment(SwingConstants.CENTER);
-		textField_13.setHorizontalAlignment(SwingConstants.CENTER);
 		textField_14.setHorizontalAlignment(SwingConstants.CENTER);
 		textField_15.setHorizontalAlignment(SwingConstants.CENTER);
 		textField_16.setHorizontalAlignment(SwingConstants.CENTER);

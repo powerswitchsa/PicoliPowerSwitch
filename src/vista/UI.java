@@ -70,7 +70,7 @@ public class UI extends JFrame {
 		lblAbsolutos.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		pnlPoblacion.add(lblAbsolutos, "cell 0 2");
 
-		JLabel lblHabitantes = new JLabel("habitantes");
+		JLabel lblHabitantes = new JLabel("Habitantes");
 		lblHabitantes.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		pnlPoblacion.add(lblHabitantes, "cell 1 3,alignx trailing");
 
@@ -79,7 +79,7 @@ public class UI extends JFrame {
 		pnlPoblacion.add(textField, "cell 3 3");
 		textField.setColumns(10);
 
-		JLabel lblMenores = new JLabel("menores");
+		JLabel lblMenores = new JLabel("Menores");
 		lblMenores.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		pnlPoblacion.add(lblMenores, "cell 1 5,alignx trailing");
 
@@ -88,7 +88,7 @@ public class UI extends JFrame {
 		pnlPoblacion.add(textField_1, "cell 3 5");
 		textField_1.setColumns(10);
 
-		JLabel lblTrabjadores = new JLabel("trabjadores");
+		JLabel lblTrabjadores = new JLabel("Trabjadores");
 		lblTrabjadores.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		pnlPoblacion.add(lblTrabjadores, "cell 1 7,alignx trailing");
 
@@ -97,7 +97,7 @@ public class UI extends JFrame {
 		pnlPoblacion.add(textField_2, "cell 3 7");
 		textField_2.setColumns(10);
 
-		JLabel lblJubilados = new JLabel("jubilados");
+		JLabel lblJubilados = new JLabel("Jubilados");
 		lblJubilados.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		pnlPoblacion.add(lblJubilados, "cell 1 9,alignx trailing");
 
@@ -110,7 +110,7 @@ public class UI extends JFrame {
 		lblRelativos.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		pnlPoblacion.add(lblRelativos, "cell 0 12");
 
-		JLabel lblNacimientos = new JLabel("nacimientos");
+		JLabel lblNacimientos = new JLabel("Nacimientos");
 		lblNacimientos.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		pnlPoblacion.add(lblNacimientos, "cell 1 14,alignx trailing");
 
@@ -119,7 +119,7 @@ public class UI extends JFrame {
 		pnlPoblacion.add(textField_4, "cell 3 14");
 		textField_4.setColumns(10);
 
-		JLabel lblFallecimientos = new JLabel("fallecimientos");
+		JLabel lblFallecimientos = new JLabel("Fallecimientos");
 		lblFallecimientos.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		pnlPoblacion.add(lblFallecimientos, "cell 1 16,alignx trailing");
 
@@ -128,7 +128,7 @@ public class UI extends JFrame {
 		pnlPoblacion.add(textField_5, "cell 3 16");
 		textField_5.setColumns(10);
 
-		JLabel lblJubilaciones = new JLabel("jubilaciones");
+		JLabel lblJubilaciones = new JLabel("Jubilaciones");
 		lblJubilaciones.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		pnlPoblacion.add(lblJubilaciones, "cell 1 18,alignx trailing");
 
@@ -137,7 +137,7 @@ public class UI extends JFrame {
 		pnlPoblacion.add(textField_6, "cell 3 18");
 		textField_6.setColumns(10);
 
-		JLabel lblNuevosTrabjadores = new JLabel("nuevos trabjadores");
+		JLabel lblNuevosTrabjadores = new JLabel("Nuevos Trabjadores");
 		lblNuevosTrabjadores.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		pnlPoblacion.add(lblNuevosTrabjadores, "cell 1 20,alignx trailing");
 
@@ -296,6 +296,33 @@ public class UI extends JFrame {
 		comunicadorPoblacion = crearComunicador(pnlPoblacion);
 		comunicadorEstadoLocal = crearComunicador(pnlEstadoLocal);
 		comunicadorEstadoGlobal = crearComunicador(pnlEstadoGlobal);
+
+		getContentPane().setBackground(Color.LIGHT_GRAY);
+		pnlPoblacion.setBackground(Color.LIGHT_GRAY);
+		pnlEstadoLocal.setBackground(Color.LIGHT_GRAY);
+		pnlEstadoGlobal.setBackground(Color.LIGHT_GRAY);
+		pnlBotonera.setBackground(Color.LIGHT_GRAY);
+
+		textField.setHorizontalAlignment(SwingConstants.CENTER);
+		textField_1.setHorizontalAlignment(SwingConstants.CENTER);
+		textField_2.setHorizontalAlignment(SwingConstants.CENTER);
+		textField_3.setHorizontalAlignment(SwingConstants.CENTER);
+		textField_4.setHorizontalAlignment(SwingConstants.CENTER);
+		textField_5.setHorizontalAlignment(SwingConstants.CENTER);
+		textField_6.setHorizontalAlignment(SwingConstants.CENTER);
+		textField_7.setHorizontalAlignment(SwingConstants.CENTER);
+		textField_8.setHorizontalAlignment(SwingConstants.CENTER);
+		textField_9.setHorizontalAlignment(SwingConstants.CENTER);
+		textField_10.setHorizontalAlignment(SwingConstants.CENTER);
+		textField_11.setHorizontalAlignment(SwingConstants.CENTER);
+		textField_12.setHorizontalAlignment(SwingConstants.CENTER);
+		textField_13.setHorizontalAlignment(SwingConstants.CENTER);
+		textField_14.setHorizontalAlignment(SwingConstants.CENTER);
+		textField_15.setHorizontalAlignment(SwingConstants.CENTER);
+		textField_16.setHorizontalAlignment(SwingConstants.CENTER);
+		textField_17.setHorizontalAlignment(SwingConstants.CENTER);
+
+		setExtendedState(JFrame.MAXIMIZED_BOTH);
 	}
 
 	private Comunicador crearComunicador(JPanel jPanel) {

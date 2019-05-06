@@ -60,7 +60,7 @@ public class Estado {
 
 	public DatosEstadoGlobal getDatosEstadoGlobales() {
 		return new DatosEstadoGlobal(this.demanda, this.industria.getProduccionTotal(),
-				this.capitalEstado.getDineroEstado(), 0);
+				(int) this.capitalEstado.getDineroEstado(), 0);
 	}
 
 	public DatosEstadoLocal getDatosEstadoLocal() {

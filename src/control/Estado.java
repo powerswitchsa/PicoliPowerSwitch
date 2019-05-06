@@ -34,6 +34,7 @@ public class Estado {
 			this.poblacion.setNacimientos(nacimientos);
 			this.industria.setContratarDesempleados(this.poblacion.getDesempleados());
 		} else {
+			cuenta-=((this.poblacion.getNumTipoSer(TipoSeres.menor))*1000);
 			int despidos = Math.abs((int) cuenta / 1000);
 			ArrayList<Integer> listaDespidos = this.industria.setDespedirEmpleados((int) despidos);
 			this.poblacion.setDespedir(listaDespidos);
@@ -53,9 +54,9 @@ public class Estado {
 
 	public DatosPoblacion getDatosPoblacion() {
 		return new DatosPoblacion(this.poblacion.getSeres().size(), this.poblacion.getNumTipoSer(TipoSeres.menor),
-				this.poblacion.getNumTipoSer(TipoSeres.trabajador), this.poblacion.getNumTipoSer(TipoSeres.jubilado),
-				this.poblacion.getNewMenores(), this.poblacion.getFallecidos(), this.poblacion.getNewJubilados(),
-				this.poblacion.getNewTrabajadores());
+				this.poblacion.getNumTipoSer(TipoSeres.desempleado), this.poblacion.getNumTipoSer(TipoSeres.trabajador),
+				this.poblacion.getNumTipoSer(TipoSeres.jubilado), this.poblacion.getNewMenores(),
+				this.poblacion.getFallecidos(), this.poblacion.getNewJubilados(), this.poblacion.getNewTrabajadores());
 	}
 
 	public DatosEstadoGlobal getDatosEstadoGlobales() {

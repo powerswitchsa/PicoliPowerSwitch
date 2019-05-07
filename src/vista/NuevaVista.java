@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.GridLayout;
+import javax.swing.JButton;
 
 public class NuevaVista extends JFrame {
 
@@ -17,6 +18,9 @@ public class NuevaVista extends JFrame {
 	private JPanel pnlBotones = new JPanel();
 	private JPanel pnlLocal = new JPanel();
 	private JPanel pnlGlobal = new JPanel();
+	private final JButton btnNewButton = new JButton("New button");
+	private final JButton btnNewButton_1 = new JButton("New button");
+	private final JButton btnNewButton_2 = new JButton("New button");
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -44,6 +48,13 @@ public class NuevaVista extends JFrame {
 //		contentPane.add(this.pnlPoblacion);
 		pnlPoblacion.setLayout(new BorderLayout(0, 0));
 		contentPane.add(this.pnlBotones);
+		pnlBotones.setLayout(new GridLayout(3, 0, 0, 0));
+		
+		pnlBotones.add(btnNewButton_1);
+		
+		pnlBotones.add(btnNewButton_2);
+		
+		pnlBotones.add(btnNewButton);
 		contentPane.add(this.pnlLocal);
 		contentPane.add(this.pnlGlobal);
 		setExtendedState(JFrame.MAXIMIZED_BOTH);

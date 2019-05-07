@@ -22,6 +22,7 @@ public class ParaUI extends UI {
 			estado.pasarAño();
 			setDatosEnElInterfazUsuario(estado.getDatosPoblacion(), estado.getDatosEstadoLocal(),
 					estado.getDatosEstadoGlobales());
+			actualizarPanelIndustria(estado.getListaFactorias());
 			try {
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {

@@ -1,6 +1,9 @@
 package control;
 
+import java.util.ArrayList;
+
 import modelo.CapitalEstado;
+import modelo.Factoria;
 import modelo.TipoSeres;
 import modelo.vista.DatosEstadoGlobal;
 import modelo.vista.DatosEstadoLocal;
@@ -12,12 +15,12 @@ public class Estado {
 	private Industria industria;
 	private CapitalEstado capitalEstado;
 
-	private double demanda = 100000;
+	private double demanda = 1500000;
 
 	public Estado() {
 		super();
 		this.industria = new Industria();
-		this.poblacion = new Poblacion(50, 100, 30);
+		this.poblacion = new Poblacion(800, 2000, 500);
 		this.capitalEstado = new CapitalEstado(100000);
 	}
 
@@ -42,6 +45,11 @@ public class Estado {
 		this.industria.setEliminarTrabajadores(this.poblacion.setActualizarSer());
 		this.industria.setEliminarFactoriasVacias();
 		this.poblacion.setActualizarSer();
+	}
+
+	public ArrayList<Factoria> getListaFactorias() {
+		ArrayList<Factoria> lista = this.industria.getFactorias();
+		return lista;
 	}
 
 	public DatosPoblacion getDatosPoblacion() {

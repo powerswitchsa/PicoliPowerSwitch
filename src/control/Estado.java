@@ -63,7 +63,7 @@ public class Estado {
 	}
 
 	public DatosEstadoLocal getDatosEstadoLocal() {
-		return new DatosEstadoLocal(0, 0, 0, 0, this.industria.getFactorias().size(), 0);
+		return new DatosEstadoLocal(this.industria.getFactorias().size());
 	}
 
 	public void setAumentarDemanda(double demanda) {

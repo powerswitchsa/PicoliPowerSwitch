@@ -26,13 +26,11 @@ public class Estado {
 		double cuenta = this.demanda
 				- (this.industria.getProduccionTotal() + (this.poblacion.getNumTipoSer(TipoSeres.menor) * 1000));
 		if (cuenta > 0) {
-			int nacimientos = (int) cuenta / 1000;
-			this.poblacion.setNacimientos(nacimientos);
+			this.poblacion.setNacimientos((int) cuenta / 1000);
 			this.industria.setContratarDesempleados(this.poblacion.getDesempleados());
 		} else {
-			int despidos = (int) (this.industria.getProduccionTotal() - demanda) / 1000;
-			this.poblacion.setDespedir(this.industria.setDespedirEmpleados((int) despidos));
-
+			this.poblacion.setDespedir(
+					this.industria.setDespedirEmpleados((int) (this.industria.getProduccionTotal() - demanda) / 1000));
 		}
 		this.capitalEstado.setDineroEstado(capitalEstado.getDineroEstado() + industria.getProduccionTotal());
 		this.poblacion.setPagarTrabajadores(capitalEstado);

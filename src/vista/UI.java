@@ -16,6 +16,9 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
 import net.miginfocom.swing.MigLayout;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.LayoutStyle.ComponentPlacement;
 
 public class UI extends JFrame {
 
@@ -43,6 +46,7 @@ public class UI extends JFrame {
 	private JButton btnIncrementar;
 	private JButton btnAño;
 	private JButton btnDecrementar;
+	private JTextField textField_8;
 
 	public UI() {
 		setVisible(true);
@@ -187,11 +191,10 @@ public class UI extends JFrame {
 
 		pnlEstadoLocal = new JPanel();
 		contentPane.add(pnlEstadoLocal, "cell 0 1,grow");
-		pnlEstadoLocal.setLayout(new MigLayout("", "[grow][][][][][grow]", "[][][][][][][][][][][][]"));
 
 		JLabel lblEstadoLocal = new JLabel("ESTADO LOCAL");
+		lblEstadoLocal.setHorizontalAlignment(SwingConstants.CENTER);
 		lblEstadoLocal.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		pnlEstadoLocal.add(lblEstadoLocal, "cell 0 0");
 
 		pnlEstadoGlobal = new JPanel();
 		contentPane.add(pnlEstadoGlobal, "cell 1 1,grow");
@@ -248,14 +251,44 @@ public class UI extends JFrame {
 		JLabel label_1 = new JLabel(" ");
 		pnlEstadoGlobal.add(label_1, "cell 1 17");
 
-		comunicadorPoblacion = crearComunicador(pnlPoblacion);
-		comunicadorEstadoLocal = crearComunicador(pnlEstadoLocal);
-		comunicadorEstadoGlobal = crearComunicador(pnlEstadoGlobal);
 
 		Color panelColor = new Color(250, 223, 184);
 		getContentPane().setBackground(panelColor);
 		pnlPoblacion.setBackground(panelColor);
 		pnlEstadoLocal.setBackground(panelColor);
+		
+		JLabel lblNewLabel_4 = new JLabel("Factorias :");
+		lblNewLabel_4.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		
+		textField_8 = new JTextField();
+		textField_8.setHorizontalAlignment(SwingConstants.CENTER);
+		textField_8.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		textField_8.setColumns(10);
+		GroupLayout gl_pnlEstadoLocal = new GroupLayout(pnlEstadoLocal);
+		gl_pnlEstadoLocal.setHorizontalGroup(
+			gl_pnlEstadoLocal.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_pnlEstadoLocal.createSequentialGroup()
+					.addGap(20)
+					.addGroup(gl_pnlEstadoLocal.createParallelGroup(Alignment.TRAILING, false)
+						.addComponent(lblEstadoLocal, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+						.addGroup(Alignment.LEADING, gl_pnlEstadoLocal.createSequentialGroup()
+							.addComponent(lblNewLabel_4, GroupLayout.PREFERRED_SIZE, 134, GroupLayout.PREFERRED_SIZE)
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(textField_8, GroupLayout.PREFERRED_SIZE, 266, GroupLayout.PREFERRED_SIZE)))
+					.addContainerGap(402, Short.MAX_VALUE))
+		);
+		gl_pnlEstadoLocal.setVerticalGroup(
+			gl_pnlEstadoLocal.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_pnlEstadoLocal.createSequentialGroup()
+					.addGap(20)
+					.addComponent(lblEstadoLocal)
+					.addGap(20)
+					.addGroup(gl_pnlEstadoLocal.createParallelGroup(Alignment.BASELINE)
+						.addComponent(lblNewLabel_4)
+						.addComponent(textField_8, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addContainerGap(172, Short.MAX_VALUE))
+		);
+		pnlEstadoLocal.setLayout(gl_pnlEstadoLocal);
 		pnlEstadoGlobal.setBackground(panelColor);
 		pnlBotonera.setBackground(panelColor);
 
@@ -272,6 +305,11 @@ public class UI extends JFrame {
 		textField_15.setHorizontalAlignment(SwingConstants.CENTER);
 		textField_16.setHorizontalAlignment(SwingConstants.CENTER);
 		textField_17.setHorizontalAlignment(SwingConstants.CENTER);
+		
+
+		comunicadorPoblacion = crearComunicador(pnlPoblacion);
+		comunicadorEstadoLocal = crearComunicador(pnlEstadoLocal);
+		comunicadorEstadoGlobal = crearComunicador(pnlEstadoGlobal);
 
 		setExtendedState(JFrame.MAXIMIZED_BOTH);
 	}
@@ -298,5 +336,4 @@ public class UI extends JFrame {
 	public JButton getBtnDecrementar() {
 		return btnDecrementar;
 	}
-
 }

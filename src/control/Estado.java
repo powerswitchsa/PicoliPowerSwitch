@@ -26,6 +26,8 @@ public class Estado {
 
 	public void pasarAño() {
 		this.poblacion.setResetDatos();
+		this.industria.setEliminarTrabajadores(this.poblacion.setEliminarMuertos(capitalEstado));
+		this.industria.setEliminarTrabajadores(this.poblacion.setActualizarSer());
 		double cuenta = this.demanda
 				- (this.industria.getProduccionTotal() + (this.poblacion.getNumTipoSer(TipoSeres.menor) * 1000));
 		if (cuenta > 0) {
@@ -41,8 +43,6 @@ public class Estado {
 		this.poblacion.setPagarDesempleados(capitalEstado);
 		this.poblacion.setPagarJubilados(capitalEstado);
 		this.poblacion.setEnvejecerPoblacion();
-		this.industria.setEliminarTrabajadores(this.poblacion.setEliminarMuertos(capitalEstado));
-		this.industria.setEliminarTrabajadores(this.poblacion.setActualizarSer());
 		this.industria.setEliminarFactoriasVacias();
 		this.poblacion.setActualizarSer();
 	}
@@ -54,7 +54,7 @@ public class Estado {
 
 	public DatosPoblacion getDatosPoblacion() {
 		return new DatosPoblacion(this.poblacion.getSeres().size(), this.poblacion.getNumTipoSer(TipoSeres.menor),
-				this.poblacion.getNumTipoSer(TipoSeres.trabajador), this.poblacion.getNumTipoSer(TipoSeres.desempleado),
+				this.industria.getNumTrabajadores(), this.poblacion.getNumTipoSer(TipoSeres.desempleado),
 				this.poblacion.getNumTipoSer(TipoSeres.jubilado), this.poblacion.getNewMenores(),
 				this.poblacion.getFallecidos(), this.poblacion.getNewJubilados(), this.poblacion.getNewTrabajadores());
 	}

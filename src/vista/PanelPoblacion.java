@@ -37,7 +37,7 @@ public class PanelPoblacion extends JPanel {
 		groupLayout.setVerticalGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup().addGap(10).addComponent(lblNewLabel).addGap(9)
 						.addComponent(panelDatosPoblacion, GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE).addGap(10)));
-		panelDatosPoblacion.setLayout(new GridLayout(9, 1, 20, 20));
+		panelDatosPoblacion.setLayout(new GridLayout(9, 1, 10, 10));
 		setLayout(groupLayout);
 
 		for (int i = 0; i < this.textJLabel.length; i++) {

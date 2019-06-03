@@ -18,13 +18,6 @@ public class Poblacion {
 	private int newTrabajadores;
 	private int newMenores;
 
-	public void setResetDatos() {
-		this.fallecidos = 0;
-		this.newJubilados = 0;
-		this.newTrabajadores = 0;
-		this.newMenores = 0;
-	}
-
 	public Poblacion(int menores, int desempleados, int jubilados) {
 		super();
 		for (int i = 0; i < menores; i++) {
@@ -39,6 +32,13 @@ public class Poblacion {
 			seres.add(new Ser(this.id, TipoSeres.jubilado, 65));
 			this.id++;
 		}
+	}
+
+	public void setResetDatos() {
+		this.fallecidos = 0;
+		this.newJubilados = 0;
+		this.newTrabajadores = 0;
+		this.newMenores = 0;
 	}
 
 	public void setDespedir(ArrayList<Integer> listaId) {

@@ -28,21 +28,6 @@ public class Industria {
 
 	public ArrayList<Integer> setDespedirEmpleados(int desempleados) {
 		ArrayList<Integer> listaId = new ArrayList<Integer>();
-//		int contador = 0;
-//		for (Iterator iterator = this.factorias.iterator(); iterator.hasNext();) {
-//			Factoria fact = (Factoria) iterator.next();
-//			if (contador == desempleados)
-//				break;
-//			for (Iterator iterator2 = fact.getTrabajadores().iterator(); iterator2.hasNext();) {
-//				Ser ser = (Ser) iterator2.next();
-//				listaId.add(ser.getId());
-//				iterator2.remove();
-//				contador++;
-//				if (contador == desempleados)
-//					break;
-//			}
-//		}
-
 		int numDesempleados = desempleados;
 		for (int i = this.factorias.size() - 1; i >= 0; i--) {
 			if (numDesempleados == 0)

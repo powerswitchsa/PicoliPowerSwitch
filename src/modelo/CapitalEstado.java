@@ -9,15 +9,15 @@ public class CapitalEstado {
 		this.dineroEstado = dineroEstado;
 	}
 
-	public double obtenerSueldo(double numMenores, double sueldo) {
-		double dineroNecesario = numMenores * sueldo;
+	public double obtenerSueldo(double numSeres, double sueldo) {
+		double dineroNecesario = numSeres * sueldo;
 		if (dineroNecesario <= this.dineroEstado) {
 			this.dineroEstado -= dineroNecesario;
 			return sueldo;
 		}
 		double repartido = 0;
 		if (dineroEstado >= 0) {
-			repartido = this.dineroEstado / numMenores;
+			repartido = this.dineroEstado / numSeres;
 			this.dineroEstado = 0;
 		}
 		return repartido;

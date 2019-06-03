@@ -108,7 +108,7 @@ public class UI extends JFrame {
 						.addComponent(lblEstadoGlobal, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE)
 						.addGap(10).addComponent(panelGlobal, GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
 						.addGap(10)));
-		panelGlobal.setLayout(new GridLayout(10, 2, 20, 20));
+		panelGlobal.setLayout(new GridLayout(10, 2, 10, 10));
 		pnlGlobal.setLayout(gl_pnlGlobal);
 		setExtendedState(JFrame.MAXIMIZED_BOTH);
 

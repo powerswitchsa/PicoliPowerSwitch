@@ -39,7 +39,7 @@
   </class>  
   <class id="5" language="java" name="control.Poblacion" project="PicoliPowerSwitch" 
     file="/PicoliPowerSwitch/src/control/Poblacion.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="346" width="282" x="347" y="452"/>    
+    <position height="346" width="282" x="330" y="404"/>    
     <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -84,8 +84,12 @@
   </class>  
   <association id="10">    
     <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="11" name="comunicadorPoblacion"/>      
-      <multiplicity id="12" minimum="0" maximum="1"/>    
+      <attribute id="11" name="comunicadorEstadoGlobal">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="12" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="9" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
@@ -93,85 +97,93 @@
   <association id="13">    
     <end type="SOURCE" refId="2" navigable="false">      
       <attribute id="14" name="poblacion">        
-        <position height="0" width="0" x="-137" y="-110"/>      
+        <position height="0" width="0" x="-154" y="-158"/>      
       </attribute>      
       <multiplicity id="15" minimum="0" maximum="1">        
-        <position height="0" width="0" x="-137" y="-110"/>      
+        <position height="0" width="0" x="-154" y="-158"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="5" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="16">    
-    <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="17" name="trabajadores">        
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="17" name="factorias">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
       <multiplicity id="18" minimum="0" maximum="2147483647">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="1" navigable="true"/>    
+    <end type="TARGET" refId="3" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <generalization id="19">    
     <end type="SOURCE" refId="6"/>    
     <end type="TARGET" refId="8"/>  
   </generalization>  
-  <dependency id="20">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="1"/>  
-  </dependency>  
-  <association id="21">    
-    <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="22" name="capitalEstado">        
-        <position height="0" width="0" x="-171" y="-48"/>      
-      </attribute>      
-      <multiplicity id="23" minimum="0" maximum="1">        
-        <position height="0" width="0" x="-171" y="-48"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="7" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="24">    
+  <association id="20">    
     <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="25" name="comunicadorEstadoLocal"/>      
-      <multiplicity id="26" minimum="0" maximum="1"/>    
+      <attribute id="21" name="comunicadorEstadoLocal">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="22" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
     <end type="TARGET" refId="9" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="27">    
+  <dependency id="23">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="1"/>  
+  </dependency>  
+  <association id="24">    
     <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="28" name="estado">        
+      <attribute id="25" name="estado">        
         <position height="0" width="0" x="120" y="32"/>      
       </attribute>      
-      <multiplicity id="29" minimum="0" maximum="1">        
+      <multiplicity id="26" minimum="0" maximum="1">        
         <position height="0" width="0" x="120" y="32"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="2" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
+  <association id="27">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="28" name="capitalEstado">        
+        <position height="0" width="0" x="-171" y="-48"/>      
+      </attribute>      
+      <multiplicity id="29" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-171" y="-48"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
   <association id="30">    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="31" name="factorias">        
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="31" name="comunicadorPoblacion">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="32" minimum="0" maximum="2147483647">        
+      <multiplicity id="32" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
+    <end type="TARGET" refId="9" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="33">    
-    <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="34" name="comunicadorEstadoGlobal"/>      
-      <multiplicity id="35" minimum="0" maximum="1"/>    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="34" name="trabajadores">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="35" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
     </end>    
-    <end type="TARGET" refId="9" navigable="true"/>    
+    <end type="TARGET" refId="1" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <association id="36">    
